@@ -14,11 +14,11 @@ Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humbl
 * High resolution large scale survey grade prior map of our campus
 * A handful of ROS2 Humble SOTA SLAM algorithms.
 
-# Notes:
+## Notes:
 
 We are open to contributions to our dataset. Please feel free to raise an [issue](https://github.com/SM20598/MRCD/issues) on github or open a [discussion](https://github.com/SM20598/MRCD/discussions) :)
 
-# Publication:
+## Publication:
 For more information, please find our publication below.
 
 [Arxiv](https://arxiv.org/)
