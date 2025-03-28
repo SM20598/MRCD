@@ -4,14 +4,14 @@ Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humbl
 
 ## Highlights
 * Our dataset features high-quality sensor data—including:
-  + HD720 30 FPS stereo frontal camera streams
-  + High resolution visual pointcloud
-  + HD720 30 FPS mono depth + colored ground-facing camera streams 
-  + 3D spinning LiDAR
-  + High quality IMUs (raw accelerometer, gyroscope and magnetometer data) 
-  + Odometry of our wheeled robot
-  + Highly accurate GPS-measurements
-  + Embedded discrete and continuous external ground truth
+  + 📷 HD720 30 FPS stereo frontal camera streams
+  + ☁️ High resolution visual frontal pointcloud
+  + 📷 HD720 30 FPS mono depth + colored ground-facing camera streams 
+  + 📏 3D spinning LiDAR
+  + ⬆️ High quality IMUs (raw accelerometer, gyroscope and magnetometer data) 
+  + 🛞 Odometry of our wheeled robot
+  + 📍 Highly accurate GPS-measurements
+  + 👣 Embedded discrete and continuous external ground truth
 * Comprehensive bags, including all sensor modalities and recordings
 * Additional lightweight bags, excluding visual data
 * High resolution large scale survey grade prior map of the campus environment
