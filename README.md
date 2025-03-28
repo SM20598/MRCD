@@ -1,6 +1,6 @@
 # [MRCD: Multi Robot Campus Dataset](https://sm20598.github.io)
 
-Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for perception, localization, and navigation in real-world outdoor environments. The dataset features a variety of challenging outdoor sequence for outdoor mobile robots.
+Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for localization, navigation and perception in real-world outdoor environments. The dataset features a variety of challenging outdoor sequence for outdoor mobile robots.
 
 ## Highlights
 * Our dataset features high-quality sensor data—including:
