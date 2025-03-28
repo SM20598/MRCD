@@ -7,7 +7,7 @@ We provide ROS2-Humble Docker images for each algorithm, which can be downloader
 ### LiDAR-Inertial SLAM
 * Fast LiDAR-Inertial Odometry [FAST-LIO](https://github.com/hku-mars/FAST_LIO.git)
 * Google Cartographer [Cartographer](https://github.com/cartographer-project/cartographer)
-* Nav2 SLAM Toolbox [Slam Toolbox] (https://github.com/SteveMacenski/slam_toolbox)
+* Nav2 SLAM Toolbox [Slam Toolbox](https://github.com/SteveMacenski/slam_toolbox)
 
 ### Visual-Inertial SLAM
 * NVIDIA ISSAC ROS [Isaac ROS Visual SLAM](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam)
