@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Home";
-        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_input_path = "README.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -30,7 +30,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> MRCD
+          <a href=".">
+          <img src="img/logo.png" class="logo" alt="Logo"/>
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -42,9 +43,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#highlights">Highlights</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#publication">Publication:</a>
     </li>
     </ul>
                 </li>
@@ -128,21 +131,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+                <h1 id="mrcd-multi-robot-campus-dataset"><a href="https://sm20598.github.io">MRCD: Multi Robot Campus Dataset</a></h1>
+<p>Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for localization, navigation and perception in real-world outdoor environments. The dataset features a variety of challenging outdoor sequence for outdoor mobile robots.</p>
+<h2 id="highlights">Highlights</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>Our dataset features high-quality sensor data—including:</li>
+<li>📷 HD720 30 FPS stereo frontal camera streams</li>
+<li>☁️ High resolution visual frontal pointcloud</li>
+<li>📷 HD720 30 FPS mono depth + colored ground-facing camera streams </li>
+<li>📏 3D spinning LiDAR</li>
+<li>⬆️ High quality IMUs (raw accelerometer, gyroscope and magnetometer data) </li>
+<li>🛞 Odometry of our wheeled robot</li>
+<li>📍 Highly accurate GPS-measurements</li>
+<li>👣 Embedded discrete and continuous external ground truth</li>
+<li>Comprehensive bags, including all sensor modalities and recordings</li>
+<li>Additional lightweight bags, excluding visual data</li>
+<li>High resolution large scale survey grade prior map of the campus environment</li>
+<li>A handful of ROS2 Humble SOTA SLAM algorithms.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<h2 id="notes">Notes:</h2>
+<p>We are open to contributions to our dataset. Please feel free to raise an <a href="https://github.com/SM20598/MRCD/issues">issue</a> or open a <a href="https://github.com/SM20598/MRCD/discussions">discussion</a> on our [Github] :)</p>
+<h2 id="publication">Publication:</h2>
+<p>For more information, please find our publication below.</p>
+<p><a href="https://arxiv.org/">Arxiv</a>
+<a href="https://arxiv.org/">Supplementary Material</a></p>
               
             </div>
           </div><footer>
@@ -191,5 +203,5 @@ docs/
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-03-31 12:59:44.797696+00:00
+Build Date UTC : 2025-03-31 13:31:21.738406+00:00
 -->
