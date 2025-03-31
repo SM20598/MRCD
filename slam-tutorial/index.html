@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Release Notes - MRCD</title>
+    <title>Slam Tutorial - MRCD</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Release Notes";
-        var mkdocs_page_input_path = "release-notes.md";
+        var mkdocs_page_name = "Slam Tutorial";
+        var mkdocs_page_input_path = "slam-tutorial.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -52,16 +52,26 @@
                 <li class="toctree-l1"><a class="reference internal" href="../user-guide/">User Guide</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../slam-tutorial/">Slam Tutorial</a>
-                </li>
-              </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Slam Tutorial</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#100-2025-04-01">1.0.0 - 2025-04-01</a>
+    <li class="toctree-l2"><a class="reference internal" href="#algorithms">Algorithms</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lidar-inertial-slam">LiDAR-Inertial SLAM</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visual-inertial-slam">Visual-Inertial SLAM</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visual-slam">Visual SLAM</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How To Use?</a>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../release-notes/">Release Notes</a>
                 </li>
               </ul>
               <ul>
@@ -98,7 +108,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Release Notes</li>
+      <li class="breadcrumb-item active">Slam Tutorial</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -107,18 +117,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="releases">Releases</h1>
-<h2 id="100-2025-04-01">1.0.0 - 2025-04-01</h2>
+                <h1 id="slam-tutorial">SLAM Tutorial</h1>
+<p>MRCD was tested using a handful of state-of-the-art SLAM algorithms, which demonstrate the capabilities of the recorded dataset.</p>
+<h2 id="algorithms">Algorithms</h2>
+<p>We provide ROS2-Humble Docker images for each algorithm, which can be downloader here [LINK?]. Please find the list and according Repositories we used below.</p>
+<h3 id="lidar-inertial-slam">LiDAR-Inertial SLAM</h3>
 <ul>
-<li>Initial release of the MRCD dataset.</li>
-<li>Added 8 sequences in a campus environment.</li>
+<li>Fast LiDAR-Inertial Odometry <a href="https://github.com/hku-mars/FAST_LIO.git">FAST-LIO</a></li>
+<li>Google Cartographer <a href="https://github.com/cartographer-project/cartographer">Cartographer</a></li>
+<li>Nav2 SLAM Toolbox <a href="https://github.com/SteveMacenski/slam_toolbox">Slam Toolbox</a></li>
 </ul>
+<h3 id="visual-inertial-slam">Visual-Inertial SLAM</h3>
+<ul>
+<li>NVIDIA ISSAC ROS <a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">Isaac ROS Visual SLAM</a></li>
+<li>Open Visual-Inertial Navigation System <a href="https://github.com/rpng/open_vins/tree/master">OpenVINS</a></li>
+<li>Real-Time Appearance-Based Mapping <a href="https://github.com/introlab/rtabmap_ros">RTAB-map</a></li>
+</ul>
+<h3 id="visual-slam">Visual SLAM</h3>
+<ul>
+<li>ORB SLAM 3 <a href="https://github.com/jnskkmhr/orbslam3">ORB-SLAM3-ROS2</a></li>
+</ul>
+<h2 id="how-to-use">How To Use?</h2>
+<p>For evaluation using the aforementioned SLAM algorithms, we recommend using our provided <a href="link">Docker Images</a> and follow the install instructions in the Install guide.. However, you may want to check if the repositories in the list above have been updated. For example, the repository that we used for ORB SLAM3 features instable stereo-inertial SLAM at this time.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../slam-tutorial/" class="btn btn-neutral float-left" title="Slam Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../contribute/" class="btn btn-neutral float-right" title="Contribute">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../user-guide/" class="btn btn-neutral float-left" title="User Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../release-notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -141,10 +167,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../slam-tutorial/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../user-guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../release-notes/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
