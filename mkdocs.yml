@@ -1,6 +1,6 @@
 site_name: MRCD
 nav:
-  - Home: index.md
+  - Home: README.md
   - About: about.md
   - "User Guide": user-guide.md
   - "API Reference": api-reference.md
