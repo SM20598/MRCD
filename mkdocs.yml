@@ -1,0 +1,28 @@
+site_name: MRCD
+nav:
+  - Home: index.md
+  - About: about.md
+  - "User Guide": user-guide.md
+  - "API Reference": api-reference.md
+  - "Release Notes": release-notes.md
+  - "Contribute": contribute.md
+  - "Contact": contact.md
+  - "License": license.md
+  - "Acknowledgements": acknowledgements.md
+  - "Cite": cite.md
+  - "FAQ": faq.md
+  - "Blog": blog.md
+  - "Gallery": gallery.md
+  - "Tutorials": tutorials.md
+  - "Workshops": workshops.md
+  - "Publications": publications.md
+  - "References": references.md
+  - "Sponsors": sponsors.md
+  - "Team": team.md
+  - "Jobs": jobs.md
+  - "Events": events.md
+  - "News": news.md
+  - "Press": press.md
+  - "Social Media": social-media.md
+  - "Videos": videos.md
+theme: readthedocs
