@@ -3,7 +3,7 @@ nav:
   - Home: README.md
   - Download: download.md
   - User Guide: user-guide.md
-  - Slam Tutorial: slam-tutorial.md
+  - SLAM Tutorial: slam-tutorial.md
   - Release Notes: release-notes.md
   - Contribute: contribute.md
   # - Contact: contact.md (ADD LATER)
