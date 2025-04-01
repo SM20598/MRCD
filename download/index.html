@@ -47,8 +47,10 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Download</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#complete-versions">Complete Versions</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset">Dataset</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#complete-version">Complete Version</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#alley-fast-a-i">Alley Fast (A I)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#alley-loop-a-ii">Alley Loop (A II)</a>
@@ -67,6 +69,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#docker-images">Docker Images</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -75,7 +79,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../slam-tutorial/">Slam Tutorial</a>
+                <li class="toctree-l1"><a class="reference internal" href="../slam-tutorial/">SLAM Tutorial</a>
                 </li>
               </ul>
               <ul>
@@ -126,44 +130,57 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="download-mrcd">Download MRCD</h1>
-<p>Below you find the download links for the MRCD dataset. We provide different versions of MRCD, including comprehensive bags and additional lightweight bags. For non-visual algorithm development, we recommend the *Lightweight bags. For comprehensive algorithm development, which requires visual data, we recommend the comprehensive bags.</p>
-<h2 id="complete-versions">Complete Versions</h2>
-<p>Below you find links to download all 8 sequences as complete versions of MRCD, including <em>Lightweight</em>, <em>Comprehensive</em>, <em>Survey-Grad Prior Map</em>, and <em>Continous Ground Truth</em>. Note that the dataset is large and may take a while to download. Make sure to have enough space on you local disc. </p>
+<p>Below you find the download links for the MRCD dataset. The downloads feature our ROS2 bags for each sequence, the according ground truth trajectory, and the survey-grade prior map of the campus environment.</p>
+<h2 id="dataset">Dataset</h2>
+<p>Below you find links to download all 8 sequences as complete versions of MRCD, including <em>Lightweight</em>, <em>Original</em>, <em>Survey-Grad Prior Map</em>, and <em>Continous Ground Truth</em>. For non-visual algorithm development, we recommend the <strong>Lightweight bags</strong>. For comprehensive algorithm development, which requires visual data, we recommend the <strong>Original</strong> bags. </p>
+<hr />
+<p><strong>Note</strong> All of our provided ROS2 bags are in compressed format. Hence the first <em>GB</em> values denotes the download size, the second <em>GB</em> value in brackets denotes the uncompressed size.</p>
+<p><em>Notation:</em></p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sm20598.github.io/downloads">Download Size in GB (Uncompressed Size in GB)</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="complete-version">Complete Version</h3>
+<p>Download all 8 sequences at once.</p>
 <table>
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (0.0 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (0.0 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
 </table>
-<p>To download single sequences, please refer to the following sections.</p>
 <h3 id="alley-fast-a-i">Alley Fast (A I)</h3>
 <p>In this sequences, our robot drives with higher velocity from North to South of the campus environment. The environment features tall buildings, height differences, and changing vegetation.</p>
 <table>
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">1.1 GB (2.7 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">42.6 GB (87.6 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -174,16 +191,14 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">27.5 GB (43.2 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">270.3 GB (147.1 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -194,16 +209,14 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">2.4 GB (5.9 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">74.6 GB (147.1 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -214,16 +227,14 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">2.6 GB (6.6 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">78.7 GB (155.0 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -234,16 +245,14 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">8.2 GB (17.6 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">154.7 GB (284.2 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -254,16 +263,14 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">8.0 GB (17.8 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">162.0 GB (296.7 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -274,16 +281,14 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">1.8 GB (4.4 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">65.1 GB (123.4 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
 </tr>
 </tbody>
@@ -294,17 +299,63 @@
 <thead>
 <tr>
 <th>Lighweight</th>
-<th>Comprehensive</th>
-<th>Survey-grade Prior Map</th>
+<th>Original</th>
 <th>Continuous GT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><a href="https://sm20598.github.io/downloads">2.9 GB (7.2 GB)</a></td>
+<td><a href="https://sm20598.github.io/downloads">89.9 GB (165.9 GB)</a></td>
 <td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="docker-images">Docker Images</h2>
+<p>Below you find our provided Docker images for each SLAM algorithm. Please find the list and according Repositories we used below. To download please klick on the links in Size column. For instructions on how to use, please refer to the <a href="https://sm20598.github.io/slam-tutorial">SLAM Tutorial</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Type We Used</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/hku-mars/FAST_LIO.git">FAST-LIO</a></td>
+<td>LiDAR-Inertial</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (4.41 GB)</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/cartographer-project/cartographer">Cartographer</a></td>
+<td>LiDAR-Inertial</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (4.4 GB)</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/SteveMacenski/slam_toolbox">NAV2 Slam Toolbox</a></td>
+<td>LiDAR-Inertial</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (4.43 GB)</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">Isaac ROS Visual SLAM</a></td>
+<td>Visual-Inertial</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (36 GB)</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/rpng/open_vins/tree/master">OpenVINS</a></td>
+<td>Visual-Inertial</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 (4.42 GB)</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/introlab/rtabmap_ros">RTAB-map</a></td>
+<td>Visual-Inertial</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (0.0 GB)</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jnskkmhr/orbslam3">ORB-SLAM3-ROS2</a></td>
+<td>Visual</td>
+<td><a href="https://sm20598.github.io/downloads">0.0 GB (9.58 GB)</a></td>
 </tr>
 </tbody>
 </table>
