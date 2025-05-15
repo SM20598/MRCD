@@ -1,4 +1,5 @@
 site_name: MRCD
+repo_url: https://sm20598.github.io/MRCD/
 nav:
   - Home: README.md
   - Download: download.md
@@ -18,3 +19,12 @@ nav:
 theme:
   name: readthedocs
   logo: img/logo.png
+extra_css:
+  - style.css
+plugins:
+  - resize-images:
+      source-dir: graphics
+      target-dir: graphics_resized
+      size: [600, 600]
+      extensions: ['.png']
+  - caption
