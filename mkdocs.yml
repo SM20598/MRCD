@@ -27,4 +27,9 @@ plugins:
       target-dir: graphics_resized
       size: [600, 600]
       extensions: ['.png']
+  - resize-images:
+      source-dir: screenshots
+      target-dir: screenshots_resized
+      size: [300, 600]
+      extensions: ['.png']
   - caption
