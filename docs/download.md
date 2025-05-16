@@ -27,9 +27,9 @@ Download all 8 sequences at once.
 | [0.0 GB (0.0 GB)](https://sm20598.github.io/downloads)| [0.0 GB (0.0 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) |
 
 ### Alley Fast (A I)
-In this sequences, our robot drives with higher velocity from North to South of the campus environment. The environment features tall buildings, height differences, and changing vegetation.
+In Alley Fast, our robot moves at a higher velocity compared to all other sequences. It makes an immediate 90° turn before descending a steep path that leads to the open main campus area. Throughout the sequence, the robot passes tall buildings, diverse vegetation, and various dynamic obstacles, including pedestrians and cars.
 
-![](/gifs/alley_fast_left.gif)<br>
+![](gifs/alley_fast_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
@@ -37,49 +37,49 @@ In this sequences, our robot drives with higher velocity from North to South of 
 | [1.1 GB (2.7 GB)](https://sm20598.github.io/downloads)| [42.6 GB (87.6 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) |
 
 ### Alley Loop (A II)
-This sequence has similar characteristics to the Alley Fast sequence. However, the sequences includes loop closure and the robot drives with lower velocity.
+Alley Loop extends the trajectory of Alley Fast and is the only bi-directional sequence in MRCD. In this sequence, the robot starts in the main campus area before ascending the same steep path featured in Alley Fast. At the northernmost point of the campus, it turns and follows the same path as in Alley Loop. The robot then enters a particularly narrow pathway, where it must navigate a series of sharp turns to reach the campus center. There, it turns around and follows the same trajectory in the opposite direction until it returns to its starting point. Alley Loop shares many characteristics with Alley Fast but presents additional challenges, including serpentine locomotion, greater height variations, and tighter spaces, alongside open environments.
 
-![](/gifs/alley_loop_left.gif)<br>
+![](gifs/alley_loop_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
 |-|-|-|
 | [27.5 GB (43.2 GB)](https://sm20598.github.io/downloads)| [270.3 GB (494.6 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) | 
 
-### Grove Loop Clockwise (G I)
-The environment of this sequence is characterized by a grove with leafy trees, wet soil, and a small pond. The robot drives in a clockwise loop around the pond.
+### Grove Clockwise (G I)
+In Grove Clockwise, the robot navigates through a predominantly green environment in the southern part of the campus. The trajectory loops around a central pond, which is surrounded by leafy trees, bushes, and buildings. Another notable characteristic is the consistently wet surface.
 
-![](/gifs/grove_clockwise_left.gif)<br>
+![](gifs/grove_clockwise_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
 |-|-|-|
 | [2.4 GB (5.9 GB)](https://sm20598.github.io/downloads)| [74.6 GB (147.1 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) | 
 
-### Grove Loop Counter Clockwise (G II)
-Same features as the Grove Loop Clockwise sequence, but the robot drives in a counter clockwise loop around the pond.
+### Grove Counterclockwise (G II)
+Grove Counterclockwise follows the same trajectory as Grove Clockwise but in opposite direction.
 
-![](/gifs/grove_counterclockwise_left.gif)<br>
+![](gifs/grove_counterclockwise_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
 |-|-|-|
 | [2.6 GB (6.6 GB)](https://sm20598.github.io/downloads)| [78.7 GB (155.0 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) | 
 
-### Town Loop Clockwise (T I)
-Town Loop Clockwise features varying environment characteristics, such as long narrow paths between tall buildings, uneven terrain, strong height differences, common obstacles (bikes, cars, trees), bright sunlight, and wide open and closed spaces.
+### Town Clockwise (T I)
+Town Clockwise captures many of the campus environment's most challenging areas. The sequence begins in the main campus area, following the same initial path as Alley Fast and Alley Loop, but then takes a right turn. After traveling over a cobblestone surface, the robot encounters a variety of environmental conditions, including long narrow paths between tall buildings, uneven terrain, significant elevation changes, common obstacles such as bikes, cars, and trees, bright sunlight, and a mix of wide open and confined spaces.
 
-![](/gifs/town_clockwise_left.gif)<br>
+![](gifs/town_clockwise_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
 |-|-|-|
 | [8.2 GB (17.6 GB)](https://sm20598.github.io/downloads)| [154.7 GB (284.2 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) | 
 
-### Town Loop Counter Clockwise (T II)
-Same features as the Town Loop Clockwise sequence, but the robot drives in a counter clockwise loop.
+### Town Counterclockwise (T II)
+Town Counterclockwise follows the same trajectory as Town Clockwise but in opposite direction.
 
-![](/gifs/town_counterclockwise_left.gif)<br>
+![](gifs/town_counterclockwise_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
@@ -87,19 +87,19 @@ Same features as the Town Loop Clockwise sequence, but the robot drives in a cou
 | [8.0 GB (17.8 GB)](https://sm20598.github.io/downloads)| [162.0 GB (296.7 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) | 
 
 ### Town Courtyard (T III)
-A shorter sequence within the town environment of the campus, featuring slalom driving between flowboxes.
+Town Courtyard is a shorter sequence set within the town environment of the campus, featuring slalom-style driving between flowerboxes and bicycles. The challenging flowerbox navigation occurs once at the beginning and again at the end of the sequence, providing multiple opportunities for visual loop closure.
 
-![](/gifs/town_courtyard_left.gif)<br>
+![](gifs/town_courtyard_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
 |-|-|-|
 | [1.8 GB (4.4 GB)](https://sm20598.github.io/downloads)| [65.1 GB (123.4 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) | 
 
-### Town Tree (T IV)
-Another short sequence within the town environment of the campus, featuring the uneven terrain and trees of the campus environment.
+### Town Trees (T IV)
+Town Trees takes place at the North of the campus and provides further slalom-style locomotion in addition to traversal over cobblestone terrain. The trajectory of Town Trees stands out due to its scenarios of close-proximity maneuvers around leafy trees and self-intersecting trajectories in form of "donut" navigation.
 
-![](/gifs/town_trees_left.gif)<br>
+![](gifs/town_trees_left.gif)<br>
 **Left Video Stream** (Original source has HD720 with 30FPS)
 
 | Lighweight | Original | Continuous GT |
@@ -107,7 +107,7 @@ Another short sequence within the town environment of the campus, featuring the 
 | [2.9 GB (7.2 GB)](https://sm20598.github.io/downloads)| [89.9 GB (165.9 GB)](https://sm20598.github.io/downloads)| [0.0 GB](https://sm20598.github.io/downloads) |
 
 ## Docker Images
-Below you find our provided Docker images for each SLAM algorithm. Please find the list and according Repositories we used below. To download please klick on the links in Size column. For instructions on how to use, please refer to the [SLAM Tutorial](https://sm20598.github.io/slam-tutorial).
+Below you find our provided Docker images for each SLAM algorithm. Please find the list and according repositories we used below. To download please klick on the links in Size column. For instructions on how to use, please refer to the [SLAM Tutorial](https://sm20598.github.io/slam-tutorial).
 
 
 | Algorithm | Type We Used | Size |
