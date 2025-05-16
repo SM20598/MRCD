@@ -52,17 +52,17 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#alley-loop-a-ii">Alley Loop (A II)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#grove-loop-clockwise-g-i">Grove Loop Clockwise (G I)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#grove-clockwise-g-i">Grove Clockwise (G I)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#grove-loop-counter-clockwise-g-ii">Grove Loop Counter Clockwise (G II)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#grove-counterclockwise-g-ii">Grove Counterclockwise (G II)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#town-loop-clockwise-t-i">Town Loop Clockwise (T I)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#town-clockwise-t-i">Town Clockwise (T I)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#town-loop-counter-clockwise-t-ii">Town Loop Counter Clockwise (T II)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#town-counterclockwise-t-ii">Town Counterclockwise (T II)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#town-courtyard-t-iii">Town Courtyard (T III)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#town-tree-t-iv">Town Tree (T IV)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#town-trees-t-iv">Town Trees (T IV)</a>
     </li>
         </ul>
     </li>
@@ -165,7 +165,7 @@
 </tbody>
 </table>
 <h3 id="alley-fast-a-i">Alley Fast (A I)</h3>
-<p>In this sequences, our robot drives with higher velocity from North to South of the campus environment. The environment features tall buildings, height differences, and changing vegetation.</p>
+<p>In Alley Fast, our robot drives with higher velocity compared to all other sequences. The robot takes an immediate 90° degree turn before driving down a steep path that leads to the open main campus area. Throughout the sequence, the robot passes tall buildings and varying vegetation, and additional dynamic obstacles including pedestrians and cars.</p>
 <p><img alt="" src="/gifs/alley_fast_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
 <table>
@@ -185,7 +185,7 @@
 </tbody>
 </table>
 <h3 id="alley-loop-a-ii">Alley Loop (A II)</h3>
-<p>This sequence has similar characteristics to the Alley Fast sequence. However, the sequences includes loop closure and the robot drives with lower velocity.</p>
+<p>Alley Loop extends the trajectory of Alley Fast and is the only bi-directional sequence of MRCD. Here, the robot start in the main campus area before driving up the same steep path as in Alley Fast. At the very North of the campus, the robot turns and follows the same path as in Alley Loop. Afterwards, the robot enters a particularly narrow pathway, where it is forced to take a handful of sharp turns to reach the campus center. Here, the robot turns and follows the same trajectory as before but in opposite direction, until it reaches its starting location. Alley loop features similar characteristics to Alley Fast but offers further challenges in serpentine locomotion, further height variations, and narrow environments in addition to the open environments.</p>
 <p><img alt="" src="/gifs/alley_loop_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
 <table>
@@ -204,8 +204,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="grove-loop-clockwise-g-i">Grove Loop Clockwise (G I)</h3>
-<p>The environment of this sequence is characterized by a grove with leafy trees, wet soil, and a small pond. The robot drives in a clockwise loop around the pond.</p>
+<h3 id="grove-clockwise-g-i">Grove Clockwise (G I)</h3>
+<p>In Grove Clockwise, the robot navigate through a predominantely greeny environment at the South of the campus. The trajectory loops around a central pond, which is surrounded by leafy trees, bushes, and buildings. Another characteristic is the overall wet surface.</p>
 <p><img alt="" src="/gifs/grove_clockwise_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
 <table>
@@ -224,8 +224,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="grove-loop-counter-clockwise-g-ii">Grove Loop Counter Clockwise (G II)</h3>
-<p>Same features as the Grove Loop Clockwise sequence, but the robot drives in a counter clockwise loop around the pond.</p>
+<h3 id="grove-counterclockwise-g-ii">Grove Counterclockwise (G II)</h3>
+<p>Grove Counterclockwise follows the same trajectory as Grove Clockwise but in opposite direction.</p>
 <p><img alt="" src="/gifs/grove_counterclockwise_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
 <table>
@@ -244,8 +244,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="town-loop-clockwise-t-i">Town Loop Clockwise (T I)</h3>
-<p>Town Loop Clockwise features varying environment characteristics, such as long narrow paths between tall buildings, uneven terrain, strong height differences, common obstacles (bikes, cars, trees), bright sunlight, and wide open and closed spaces.</p>
+<h3 id="town-clockwise-t-i">Town Clockwise (T I)</h3>
+<p>Town Clockwise captures many challenging areas of the campus environment. The sequence starts in the main campus area before driving up the same path as in Alley Fast and Alley Loop, but takes a right-turn after. After driving on cobblestone surface, the robot
+varying environment characteristics, such as long narrow paths between tall buildings, uneven terrain, strong height differences, common obstacles (bikes, cars, trees), bright sunlight, and wide open and closed spaces.</p>
 <p><img alt="" src="/gifs/town_clockwise_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
 <table>
@@ -264,8 +265,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="town-loop-counter-clockwise-t-ii">Town Loop Counter Clockwise (T II)</h3>
-<p>Same features as the Town Loop Clockwise sequence, but the robot drives in a counter clockwise loop.</p>
+<h3 id="town-counterclockwise-t-ii">Town Counterclockwise (T II)</h3>
+<p>Grove Counterclockwise follows the same trajectory as Grove Clockwise but in opposite direction.</p>
 <p><img alt="" src="/gifs/town_counterclockwise_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
 <table>
@@ -304,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="town-tree-t-iv">Town Tree (T IV)</h3>
+<h3 id="town-trees-t-iv">Town Trees (T IV)</h3>
 <p>Another short sequence within the town environment of the campus, featuring the uneven terrain and trees of the campus environment.</p>
 <p><img alt="" src="/gifs/town_trees_left.gif"><br>
 <strong>Left Video Stream</strong> (Original source has HD720 with 30FPS)</p>
