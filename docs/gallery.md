@@ -49,3 +49,9 @@ Our logo shows a Hawksbill Tutle 😉
 ![](graphics_resized/town_courtyard_gtpreview_cut.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](graphics_resized/town_trees_gtpreview_cut.png)
+
+**Northern Campus Pointcloud** 
+![](graphics/Pointcloud_TUHH_01.jpg)
+
+**Southern Campus Pointcloud** 
+![](graphics/Pointcloud_TUHH_01.jpg)

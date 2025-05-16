@@ -75,4 +75,9 @@ Dt: 0.01, Order: 4, Knots: 18630, MinTime: 1733232244.216222, MaxTime: 173323243
 ```
 
 ### Survey-grade prior map
-Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is available for download from the [Download](https://sm20598.github.io/downloads) page.
+Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is constructed via stitching of pointclouds that have been recorded on campus. As the campus consists of a northern and southern area, two separate pointclouds have been created. The map is available for download from the [Download](https://sm20598.github.io/downloads) page.
+
+![](graphics/Pointcloud_TUHH_01.jpg)<br>
+**Northern campus pointcloud**
+![](graphics/Pointcloud_TUHH_02.jpg)<br>
+**Northern campus pointcloud**

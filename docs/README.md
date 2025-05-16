@@ -21,7 +21,16 @@ Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humbl
 We are open to contributions to our dataset. Please feel free to raise an [issue](https://github.com/SM20598/MRCD/issues) or open a [discussion](https://github.com/SM20598/MRCD/discussions) on our [Github](https://github.com/SM20598/MRCD) 🙃
 
 ## Publication:
-For more information, please find our publication below.
+For more information, please find our publication below. If you use MRCD or reference our work, we wkindly ask that you cite it as follows:
+
+```bibtex
+@article{mrcd2025,
+  title={MRCD: Mobile Robot Campus Dataset for Evaluating SLAM Algorithms on Wheeled Robots},
+  author={Doe, John},
+  journal={arXiv},
+  year={2025}
+}
+```
 
 [Arxiv](https://arxiv.org/)
 [Supplementary Material](https://arxiv.org/)
