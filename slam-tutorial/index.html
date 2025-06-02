@@ -59,6 +59,10 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#nav2-slam-toolbox">Nav2 SLAM Toolbox</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#google-cartographer-2d-3d">Google Cartographer 2D &amp; 3D</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fast-lidar-inertial-odometry-fast-lio">Fast LiDAR-Inertial Odometry (FAST-LIO)</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#visual-inertial-slam">Visual-Inertial SLAM</a>
@@ -120,10 +124,6 @@
 <h2 id="algorithms">Algorithms</h2>
 <p>We provide ROS2-Humble Docker images for each algorithm, which can be downloader here [LINK?]. Please find the list and according Repositories we used below.</p>
 <h3 id="lidar-inertial-slam">LiDAR-Inertial SLAM</h3>
-<ul>
-<li>Fast LiDAR-Inertial Odometry <a href="https://github.com/hku-mars/FAST_LIO.git">FAST-LIO</a></li>
-<li>Google Cartographer <a href="https://github.com/cartographer-project/cartographer">Cartographer</a></li>
-</ul>
 <h4 id="nav2-slam-toolbox"><a href="https://github.com/SteveMacenski/slam_toolbox">Nav2 SLAM Toolbox</a></h4>
 <ul>
 <li>Navigate to the directory containing the SLAM Toolbox docker container archive and run the following command to convert the archive into a runnable docker container. </li>
@@ -133,7 +133,7 @@
 </ul>
 </li>
 </ul>
-<pre><code>sudo docker import mrcd_slamtoolbox_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+<pre><code class="language-bash">sudo docker import mrcd_slamtoolbox_container.tar &lt;image_name&gt;:&lt;image_version&gt;
 </code></pre>
 <ul>
 <li>Run the imported image as a docker container with the following command. </li>
@@ -145,7 +145,7 @@
 </ul>
 </li>
 </ul>
-<pre><code>sudo docker container run -it \
+<pre><code class="language-bash">sudo docker container run -it \
     -v &lt;path_to_bag_files&gt;:/dataset_files/ \
     --name &lt;container_name&gt; \
     --net=host \
@@ -162,7 +162,7 @@
 </li>
 <li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
 </ul>
-<pre><code>docker exec -it &lt;container_name&gt; bash
+<pre><code class="language-bash">docker exec -it &lt;container_name&gt; bash
 </code></pre>
 <ul>
 <li>Launch the following nodes in separate terminals:</li>
@@ -171,7 +171,7 @@
 </ul>
 </li>
 </ul>
-<pre><code># Basic EKF Node to provide the SLAM Toolbox with an `odom` frame 
+<pre><code class="language-bash"># Basic EKF Node to provide the SLAM Toolbox with an `odom` frame 
 ros2 launch mrcd_slam_toolbox simple_ekf.launch.py 
 
 # SLAM Toolbox launch
@@ -184,6 +184,133 @@ ros2 launch mrcd_slam_toolbox rviz.launch
 ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
 </code></pre>
 <p><img alt="" src="../img/ST_RViz.png"><br></p>
+<h4 id="google-cartographer-2d-3d"><a href="https://github.com/cartographer-project/cartographer">Google Cartographer 2D &amp; 3D</a></h4>
+<pre><code class="language-bash">sudo docker import mrcd_cartographer_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Run the imported image as a docker container with the following command. </li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Open additional additional terminals for the running container.</li>
+<li>Substitute:<ul>
+<li><code>&lt;container_name&gt;</code>: Container name selected in previous step.</li>
+</ul>
+</li>
+<li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
+</ul>
+<pre><code class="language-bash">docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<h5 id="2d-cartographer">2D Cartographer</h5>
+<ul>
+<li>For 2D SLAM run the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+<li>Note: The Cartographer is using additional offline optimization, which causes the algorithm to continue running for a while after the playback of the bagfile has stopped.</li>
+</ul>
+<pre><code class="language-bash"># Launch 2D Cartographer
+ros2 launch mrcd_cartographer demo_backpack_2d.launch.py
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+
+############# After optimization step is done #######################
+# Call service to finally adjust trajectory according to optimization
+ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory
+
+# Call service to query trajectory to evaluate
+ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
+</code></pre>
+<p><img alt="" src="../img/GC2D_RViz.png"><br></p>
+<h5 id="3d-cartographer">3D Cartographer</h5>
+<ul>
+<li>For 3D SLAM run the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+<li>Note: The Cartographer is using additional offline optimization, which causes the algorithm to continue running for a while after the playback of the bagfile has stopped.</li>
+</ul>
+<pre><code class="language-bash"># Launch 3D Cartographer
+ros2 launch mrcd_cartographer demo_backpack_3d.launch.py
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+
+############# After optimization step is done #######################
+# Call service to finally adjust trajectory according to optimization
+ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory
+
+# Call service to query trajectory to evaluate
+ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
+</code></pre>
+<p><img alt="" src="../img/GC3D_RViz.png"><br></p>
+<h4 id="fast-lidar-inertial-odometry-fast-lio">Fast LiDAR-Inertial Odometry (<a href="https://github.com/hku-mars/FAST_LIO.git">FAST-LIO</a>)</h4>
+<pre><code class="language-bash">sudo docker import mrcd_fastlio_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Run the imported image as a docker container with the following command. </li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Open additional additional terminals for the running container.</li>
+<li>Substitute:<ul>
+<li><code>&lt;container_name&gt;</code>: Container name selected in previous step.</li>
+</ul>
+</li>
+<li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
+</ul>
+<pre><code class="language-bash">docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<ul>
+<li>To start the 3D SLAM, run the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch FAST-LIO
+ros2 launch mrcd_fast_lio2 mapping.launch.py
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+
+# Call service to save 3D Map after SLAM has finished
+ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
+</code></pre>
+<p><img alt="" src="../img/FL_RViz.png"><br></p>
 <h3 id="visual-inertial-slam">Visual-Inertial SLAM</h3>
 <ul>
 <li>NVIDIA ISSAC ROS <a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">Isaac ROS Visual SLAM</a></li>
