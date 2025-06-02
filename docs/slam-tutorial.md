@@ -199,9 +199,50 @@ ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
 ![](img/FL_RViz.png)<br>
 
 ### Visual-Inertial SLAM
-* NVIDIA ISSAC ROS [Isaac ROS Visual SLAM](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam)
-* Open Visual-Inertial Navigation System [OpenVINS](https://github.com/rpng/open_vins/tree/master)
-* Real-Time Appearance-Based Mapping [RTAB-map](https://github.com/introlab/rtabmap_ros)
+
+#### [NVIDIA ISSAC ROS Visual SLAM](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam)
+
+* For running the NVIDIA Containers, the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html) is used to achieve access to cuda and gpu acceleration.
+* With the following run command, the gpu acceleration is allowed.
+* Be aware that to run this container, a NVIDIA gpu and CUDA are required.
+* Substitute:
+    * `<path_to_bag_files>`: Path to directory holding the downloaded dataset sequences.
+    * `<container_name>`: Name under which the container should be saved on your machine.
+    * `<image_name>`: Image name selected in previous step.
+    * `<image_version>`: Image version selected in previous step.
+```
+sudo docker container run -it \
+    --runtime=nvidia \
+    --gpus all \
+    -v <path_to_bag_files>:/dataset_files/ \
+    --name <container_name> \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    <image_name>:<image_version> \
+    bash
+```
+
+* To launch the nvidia Isaac ROS Visual SLAM, open 3 Terminals to the container and launch the following commands.
+* Substitute:
+    * `<path_to_bagfile>`: Path to directory of the bagfile to play inside the previously mounted volume.
+
+```bash
+# Launch Nvidia Isaac ROS Visual Slam
+ros2 launch mrcd_isaac_ros_visual_slam mrcd_visual_slam_core.launch.py
+
+# Play bagfile with tf remappings as the Slam node does not allow remapping on launch and with read ahead queue to accomodate large data volume through images
+ros2 bag play -p /dataset_files/<path_to_bagfile> --remap /mrcd_robot/tf:=/tf /mrcd_robot/tf_static:=tf_static  --clock --read-ahead-queue-size 10000
+
+# Launch preconfigured visualization
+rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
+```
+
+![](img/NIRV_RViz.png)<br>
+
+#### Open Visual-Inertial Navigation System [OpenVINS](https://github.com/rpng/open_vins/tree/master)
+#### Real-Time Appearance-Based Mapping [RTAB-map](https://github.com/introlab/rtabmap_ros)
 
 ### Visual SLAM
 * ORB SLAM 3 [ORB-SLAM3-ROS2](https://github.com/jnskkmhr/orbslam3)
