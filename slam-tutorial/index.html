@@ -153,6 +153,7 @@
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     &lt;image_name&gt;:&lt;image_version&gt;
+    bash
 </code></pre>
 <ul>
 <li>Open additional 3 additional terminals for the running container.</li>
@@ -205,6 +206,7 @@ ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     &lt;image_name&gt;:&lt;image_version&gt;
+    bash
 </code></pre>
 <ul>
 <li>Open additional additional terminals for the running container.</li>
@@ -283,6 +285,7 @@ ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/Traject
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     &lt;image_name&gt;:&lt;image_version&gt;
+    bash
 </code></pre>
 <ul>
 <li>Open additional additional terminals for the running container.</li>
