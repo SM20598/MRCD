@@ -66,6 +66,14 @@
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#visual-inertial-slam">Visual-Inertial SLAM</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#nvidia-issac-ros-visual-slam">NVIDIA ISSAC ROS Visual SLAM</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#open-visual-inertial-navigation-system-openvins">Open Visual-Inertial Navigation System OpenVINS</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#real-time-appearance-based-mapping-rtab-map">Real-Time Appearance-Based Mapping RTAB-map</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#visual-slam">Visual SLAM</a>
     </li>
@@ -315,11 +323,50 @@ ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
 </code></pre>
 <p><img alt="" src="../img/FL_RViz.png"><br></p>
 <h3 id="visual-inertial-slam">Visual-Inertial SLAM</h3>
+<h4 id="nvidia-issac-ros-visual-slam"><a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">NVIDIA ISSAC ROS Visual SLAM</a></h4>
 <ul>
-<li>NVIDIA ISSAC ROS <a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">Isaac ROS Visual SLAM</a></li>
-<li>Open Visual-Inertial Navigation System <a href="https://github.com/rpng/open_vins/tree/master">OpenVINS</a></li>
-<li>Real-Time Appearance-Based Mapping <a href="https://github.com/introlab/rtabmap_ros">RTAB-map</a></li>
+<li>For running the NVIDIA Containers, the <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html">NVIDIA Container Toolkit</a> is used to achieve access to cuda and gpu acceleration.</li>
+<li>With the following run command, the gpu acceleration is allowed.</li>
+<li>Be aware that to run this container, a NVIDIA gpu and CUDA are required.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
 </ul>
+</li>
+</ul>
+<pre><code>sudo docker container run -it \
+    --runtime=nvidia \
+    --gpus all \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>To launch the nvidia Isaac ROS Visual SLAM, open 3 Terminals to the container and launch the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch Nvidia Isaac ROS Visual Slam
+ros2 launch mrcd_isaac_ros_visual_slam mrcd_visual_slam_core.launch.py
+
+# Play bagfile with tf remappings as the Slam node does not allow remapping on launch and with read ahead queue to accomodate large data volume through images
+ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --remap /mrcd_robot/tf:=/tf /mrcd_robot/tf_static:=tf_static  --clock --read-ahead-queue-size 10000
+
+# Launch preconfigured visualization
+rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
+</code></pre>
+<p><img alt="" src="../img/NIRV_RViz.png"><br></p>
+<h4 id="open-visual-inertial-navigation-system-openvins">Open Visual-Inertial Navigation System <a href="https://github.com/rpng/open_vins/tree/master">OpenVINS</a></h4>
+<h4 id="real-time-appearance-based-mapping-rtab-map">Real-Time Appearance-Based Mapping <a href="https://github.com/introlab/rtabmap_ros">RTAB-map</a></h4>
 <h3 id="visual-slam">Visual SLAM</h3>
 <ul>
 <li>ORB SLAM 3 <a href="https://github.com/jnskkmhr/orbslam3">ORB-SLAM3-ROS2</a></li>
