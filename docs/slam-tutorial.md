@@ -33,6 +33,7 @@ sudo docker container run -it \
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     <image_name>:<image_version>
+    bash
 ```
 
 * Open additional 3 additional terminals for the running container.
@@ -86,6 +87,7 @@ sudo docker container run -it \
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     <image_name>:<image_version>
+    bash
 ```
 
 * Open additional additional terminals for the running container.
@@ -167,6 +169,7 @@ sudo docker container run -it \
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     <image_name>:<image_version>
+    bash
 ```
 
 * Open additional additional terminals for the running container.
