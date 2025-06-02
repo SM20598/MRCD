@@ -8,7 +8,7 @@
     <title>SLAM Tutorial - MRCD</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
         <link href="../style.css" rel="stylesheet" />
     
       <script>
@@ -18,11 +18,12 @@
         var mkdocs_page_url = null;
       </script>
     
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -50,11 +51,15 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">SLAM Tutorial</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">SLAM Tutorial</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#algorithms">Algorithms</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#lidar-inertial-slam">LiDAR-Inertial SLAM</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#nav2-slam-toolbox">Nav2 SLAM Toolbox</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#visual-inertial-slam">Visual-Inertial SLAM</a>
     </li>
@@ -100,8 +105,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">SLAM Tutorial</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>SLAM Tutorial</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -118,8 +123,67 @@
 <ul>
 <li>Fast LiDAR-Inertial Odometry <a href="https://github.com/hku-mars/FAST_LIO.git">FAST-LIO</a></li>
 <li>Google Cartographer <a href="https://github.com/cartographer-project/cartographer">Cartographer</a></li>
-<li>Nav2 SLAM Toolbox <a href="https://github.com/SteveMacenski/slam_toolbox">Slam Toolbox</a></li>
 </ul>
+<h4 id="nav2-slam-toolbox"><a href="https://github.com/SteveMacenski/slam_toolbox">Nav2 SLAM Toolbox</a></h4>
+<ul>
+<li>Navigate to the directory containing the SLAM Toolbox docker container archive and run the following command to convert the archive into a runnable docker container. </li>
+<li>Substitute:<ul>
+<li><code>&lt;image_name&gt;</code>: Name under which the image should be saved on your machine.</li>
+<li><code>&lt;image_version&gt;</code>: Version of the generated image. Defaults to 'latest'.</li>
+</ul>
+</li>
+</ul>
+<pre><code>sudo docker import mrcd_slamtoolbox_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Run the imported image as a docker container with the following command. </li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code>sudo docker container run -it \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Open additional 3 additional terminals for the running container.</li>
+<li>Substitute:<ul>
+<li><code>&lt;container_name&gt;</code>: Container name selected in previous step.</li>
+</ul>
+</li>
+<li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
+</ul>
+<pre><code>docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<ul>
+<li>Launch the following nodes in separate terminals:</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code># Basic EKF Node to provide the SLAM Toolbox with an `odom` frame 
+ros2 launch mrcd_slam_toolbox simple_ekf.launch.py 
+
+# SLAM Toolbox launch
+ros2 launch mrcd_slam_toolbox slam_toolbox_launch_online_sync.launch.py
+
+# Launch preconfigured RViz visualization
+ros2 launch mrcd_slam_toolbox rviz.launch
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+</code></pre>
+<p><img alt="" src="../img/ST_RViz.png"><br></p>
 <h3 id="visual-inertial-slam">Visual-Inertial SLAM</h3>
 <ul>
 <li>NVIDIA ISSAC ROS <a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">Isaac ROS Visual SLAM</a></li>
@@ -159,10 +223,6 @@
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
-        <span>
-          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
-        </span>
-    
     
       <span><a href="../user-guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
@@ -171,14 +231,13 @@
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-    <script>
-        jQuery(function () {
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
-        });
+        };
     </script>
 
 </body>
