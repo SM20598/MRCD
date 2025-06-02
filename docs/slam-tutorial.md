@@ -86,7 +86,7 @@ sudo docker container run -it \
     --privileged \
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
-    <image_name>:<image_version>
+    <image_name>:<image_version> \
     bash
 ```
 
@@ -168,7 +168,7 @@ sudo docker container run -it \
     --privileged \
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
-    <image_name>:<image_version>
+    <image_name>:<image_version> \
     bash
 ```
 
