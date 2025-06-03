@@ -8,7 +8,7 @@
     <title>Gallery - MRCD</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="../style.css" rel="stylesheet" />
     
       <script>
@@ -18,12 +18,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -63,7 +62,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Gallery</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Gallery</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#screenshots">Screenshots</a>
         <ul>
@@ -93,6 +92,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#town">Town</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#survey-grade-prior-map">Survey-Grade Prior Map</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -119,8 +120,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Gallery</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Gallery</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -233,6 +234,7 @@ Our logo shows a Hawksbill Tutle 😉</p>
 <p><img alt="" src="../graphics_resized/town_courtyard_gtpreview_cut.png">
                   
 <img alt="" src="../graphics_resized/town_trees_gtpreview_cut.png"></p>
+<h3 id="survey-grade-prior-map">Survey-Grade Prior Map</h3>
 <p><strong>Northern Campus Pointcloud</strong> 
 <img alt="" src="../graphics/Pointcloud_TUHH_01.jpg"></p>
 <p><strong>Southern Campus Pointcloud</strong> 
@@ -264,6 +266,10 @@ Our logo shows a Hawksbill Tutle 😉</p>
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
+        <span>
+          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
+        </span>
+    
     
       <span><a href="../contribute/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
@@ -272,13 +278,14 @@ Our logo shows a Hawksbill Tutle 😉</p>
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

@@ -8,7 +8,7 @@
     <title>Download - MRCD</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="../style.css" rel="stylesheet" />
     
       <script>
@@ -18,12 +18,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -43,12 +42,10 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Download</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Download</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#dataset">Dataset</a>
+    <li class="toctree-l2"><a class="reference internal" href="#sequences">Sequences</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#complete-version">Complete Version</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#alley-fast-a-i">Alley Fast (A I)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#alley-loop-a-ii">Alley Loop (A II)</a>
@@ -68,6 +65,8 @@
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#docker-images">Docker Images</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#survey-grade-prior-map">Survey-Grade Prior Map</a>
     </li>
     </ul>
                 </li>
@@ -113,8 +112,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Download</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Download</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -125,11 +124,9 @@
               
                 <h1 id="download-mrcd">Download MRCD</h1>
 <p>Below you find the download links for the MRCD dataset. The downloads feature our ROS2 bags for each sequence, the according ground truth trajectory, and the survey-grade prior map of the campus environment.</p>
-<h2 id="dataset">Dataset</h2>
+<h2 id="sequences">Sequences</h2>
 <p>Below you find links to download all 8 sequences as complete versions of MRCD, including <em>Lightweight</em>, <em>Original</em>, <em>Survey-Grad Prior Map</em>, and <em>Continous Ground Truth</em>. For non-visual algorithm development, we recommend the <strong>Lightweight bags</strong>. For comprehensive algorithm development, which requires visual data, we recommend the <strong>Original</strong> bags. </p>
-<hr>
 <p><strong>Note</strong> All of our provided ROS2 bags are in compressed format. Hence the first <em>GB</em> values denotes the download size, the second <em>GB</em> value in brackets denotes the uncompressed size.</p>
-<p><em>Notation:</em></p>
 <table>
 <thead>
 <tr>
@@ -143,24 +140,6 @@
 </tbody>
 </table>
 <hr>
-<h3 id="complete-version">Complete Version</h3>
-<p>Download all 8 sequences at once.</p>
-<table>
-<thead>
-<tr>
-<th>Lighweight</th>
-<th>Original</th>
-<th>Continuous GT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB (0.0 GB)</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB (0.0 GB)</a></td>
-<td><a href="https://sm20598.github.io/downloads">0.0 GB</a></td>
-</tr>
-</tbody>
-</table>
 <h3 id="alley-fast-a-i">Alley Fast (A I)</h3>
 <p>In Alley Fast, our robot moves at a higher velocity compared to all other sequences. It makes an immediate 90° turn before descending a steep path that leads to the open main campus area. Throughout the sequence, the robot passes tall buildings, diverse vegetation, and various dynamic obstacles, including pedestrians and cars.</p>
 <p><img alt="" src="../gifs/alley_fast_left.gif"><br>
@@ -181,6 +160,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="alley-loop-a-ii">Alley Loop (A II)</h3>
 <p>Alley Loop extends the trajectory of Alley Fast and is the only bi-directional sequence in MRCD. In this sequence, the robot starts in the main campus area before ascending the same steep path featured in Alley Fast. At the northernmost point of the campus, it turns and follows the same path as in Alley Loop. The robot then enters a particularly narrow pathway, where it must navigate a series of sharp turns to reach the campus center. There, it turns around and follows the same trajectory in the opposite direction until it returns to its starting point. Alley Loop shares many characteristics with Alley Fast but presents additional challenges, including serpentine locomotion, greater height variations, and tighter spaces, alongside open environments.</p>
 <p><img alt="" src="../gifs/alley_loop_left.gif"><br>
@@ -201,6 +181,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="grove-clockwise-g-i">Grove Clockwise (G I)</h3>
 <p>In Grove Clockwise, the robot navigates through a predominantly green environment in the southern part of the campus. The trajectory loops around a central pond, which is surrounded by leafy trees, bushes, and buildings. Another notable characteristic is the consistently wet surface.</p>
 <p><img alt="" src="../gifs/grove_clockwise_left.gif"><br>
@@ -221,6 +202,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="grove-counterclockwise-g-ii">Grove Counterclockwise (G II)</h3>
 <p>Grove Counterclockwise follows the same trajectory as Grove Clockwise but in opposite direction.</p>
 <p><img alt="" src="../gifs/grove_counterclockwise_left.gif"><br>
@@ -241,6 +223,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="town-clockwise-t-i">Town Clockwise (T I)</h3>
 <p>Town Clockwise captures many of the campus environment's most challenging areas. The sequence begins in the main campus area, following the same initial path as Alley Fast and Alley Loop, but then takes a right turn. After traveling over a cobblestone surface, the robot encounters a variety of environmental conditions, including long narrow paths between tall buildings, uneven terrain, significant elevation changes, common obstacles such as bikes, cars, and trees, bright sunlight, and a mix of wide open and confined spaces.</p>
 <p><img alt="" src="../gifs/town_clockwise_left.gif"><br>
@@ -261,6 +244,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="town-counterclockwise-t-ii">Town Counterclockwise (T II)</h3>
 <p>Town Counterclockwise follows the same trajectory as Town Clockwise but in opposite direction.</p>
 <p><img alt="" src="../gifs/town_counterclockwise_left.gif"><br>
@@ -281,6 +265,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="town-courtyard-t-iii">Town Courtyard (T III)</h3>
 <p>Town Courtyard is a shorter sequence set within the town environment of the campus, featuring slalom-style driving between flowerboxes and bicycles. The challenging flowerbox navigation occurs once at the beginning and again at the end of the sequence, providing multiple opportunities for visual loop closure.</p>
 <p><img alt="" src="../gifs/town_courtyard_left.gif"><br>
@@ -301,6 +286,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="town-trees-t-iv">Town Trees (T IV)</h3>
 <p>Town Trees takes place at the North of the campus and provides further slalom-style locomotion in addition to traversal over cobblestone terrain. The trajectory of Town Trees stands out due to its scenarios of close-proximity maneuvers around leafy trees and self-intersecting trajectories in form of "donut" navigation.</p>
 <p><img alt="" src="../gifs/town_trees_left.gif"><br>
@@ -321,6 +307,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="docker-images">Docker Images</h2>
 <p>Below you find our provided Docker images for each SLAM algorithm. Please find the list and according repositories we used below. To download please klick on the links in Size column. For instructions on how to use, please refer to the <a href="https://sm20598.github.io/slam-tutorial">SLAM Tutorial</a>.</p>
 <table>
@@ -369,6 +356,23 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="survey-grade-prior-map">Survey-Grade Prior Map</h2>
+<p>Please find our survey-grade prior maps in resolution of 1cm and 5cm below.</p>
+<table>
+<thead>
+<tr>
+<th>1cm resolution</th>
+<th>5cm resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sm20598.github.io/downloads">11.6 GB</a></td>
+<td><a href="https://sm20598.github.io/downloads">1.3 GB</a></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
@@ -396,6 +400,10 @@
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
+        <span>
+          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
+        </span>
+    
     
       <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
@@ -404,13 +412,14 @@
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

@@ -8,7 +8,7 @@
     <title>User Guide - MRCD</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="../style.css" rel="stylesheet" />
     
       <script>
@@ -18,12 +18,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -47,17 +46,15 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">User Guide</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">User Guide</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#hardware-specifications">Hardware Specifications</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#available-topics">Available Topics</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ground-truth">Ground Truth</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#survey-grade-prior-map">Survey-grade prior map</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#survey-grade-prior-map">Survey-Grade Prior Map</a>
     </li>
     </ul>
                 </li>
@@ -99,8 +96,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>User Guide</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">User Guide</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -110,7 +107,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="about-mrcd">About MRCD</h1>
-<p>Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the <a href="https://sm20598.github.io/downloads">Download</a> page.</p>
+<p>Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the <a href="../download/#dataset">Download</a> page.</p>
+<hr>
 <h2 id="hardware-specifications">Hardware Specifications</h2>
 <ul>
 <li>Four-wheeld robot platform <a href="https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/">Clearpath Jackal UGV</a></li>
@@ -119,6 +117,7 @@
 <li>Ground-facing camera <a href="https://www.intelrealsense.com/depth-camera-d435/">Intel Realsense D435</a></li>
 <li>Top RTK-GNSS Module <a href="https://emlid.com/de/reach/">Emlid Reach M2</a></li>
 </ul>
+<hr>
 <h2 id="available-topics">Available Topics</h2>
 <table>
 <thead>
@@ -321,8 +320,9 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="ground-truth">Ground Truth</h2>
-<p>As you see in the table above, MRCD contains a topic for discrete gound truth. Our ground truth is based on B-splines (for further information we recommend the works of <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Sommer_Efficient_Derivative_Computation_for_Cumulative_B-Splines_on_Lie_Groups_CVPR_2020_paper.pdf">Sommer &amp; Usenko</a> and <a href="https://mcdviral.github.io/images/bspline_technical_note.pdf">Nguyen</a>). For external downloads, both continuous- and discrete-time ground truth sampled with 10 Hz, please visit our <a href="https://sm20598.github.io/downloads">Download</a> page.</p>
+<p>As you see in the table above, MRCD contains a topic for discrete gound truth. Our ground truth is based on B-splines (for further information we recommend the works of <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Sommer_Efficient_Derivative_Computation_for_Cumulative_B-Splines_on_Lie_Groups_CVPR_2020_paper.pdf">Sommer &amp; Usenko</a> and <a href="https://mcdviral.github.io/images/bspline_technical_note.pdf">Nguyen</a>). For external downloads, both continuous- and discrete-time ground truth sampled with 10 Hz, please visit our <a href="../download/#sequences">Download</a> page.</p>
 <p><strong>Discrete time ground truth</strong> is recommended for traditional benchmark evaluation. For this purpose, you can use <em>sampled-10Hz.csv</em> files. A snippet is given below.</p>
 <pre><code># t, x, y, z, qx, qy, qz, qw
 1733232244.216223,-11.381495,419.831974,13.050092,-0.001421,0.002207,0.986825,0.161768
@@ -330,15 +330,16 @@
 1733232244.416222,-11.376395,419.840031,13.049060,-0.001391,0.002309,0.986843,0.161660
 1733232244.516222,-11.376447,419.839133,13.048638,-0.001201,0.002303,0.986867,0.161513
 </code></pre>
-<p><strong>Continuous-time Ground Truth</strong> is provided in the form of B-splines in files named <em>spline.csv</em>, which contain a list of <em>control points</em>. Please find a snippet below. For reading the <em>spline.csv</em> files, we refer to the example Python script in <a href="https://mcdviral.github.io/Groundtruth.html">MCD</a>. In addition, please find our docker image for running the script in our <a href="https://sm20598.github.io/downloads">Download</a> page.</p>
+<p><strong>Continuous-time Ground Truth</strong> is provided in the form of B-splines in files named <em>spline.csv</em>, which contain a list of <em>control points</em>. Please find a snippet below. For reading the <em>spline.csv</em> files, we refer to the example Python script in <a href="https://mcdviral.github.io/Groundtruth.html">MCD</a>. In addition, please find our docker image for running the script in our <a href="../download/#sequences">Download</a> page.</p>
 <pre><code>Dt: 0.01, Order: 4, Knots: 18630, MinTime: 1733232244.216222, MaxTime: 1733232430.486222, OtrItr: 0
 0,1733232244.216222,-11.38167635118966,419.831709573794,13.04996049864827,-0.001487913908807536,0.002282587900610606,0.9867893981649208,0.1619853683947698
 1,1733232244.226222,-11.38149436097049,419.8319735971247,13.05009187779725,-0.00142456389288367,0.002201660148280774,0.9868312052885267,0.1617321723687045
 2,1733232244.236222,-11.38131456689262,419.8322401513307,13.0502227986052,-0.001339607412260437,0.002152985618908402,0.9868380617679345,0.1616917126850109
 3,1733232244.246222,-11.38113488883607,419.832506908778,13.05035379930804,-0.001305077430043593,0.002090431447356799,0.9868645309147559,0.1615311873653645
 </code></pre>
-<h3 id="survey-grade-prior-map">Survey-grade prior map</h3>
-<p>Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is constructed via stitching of pointclouds that have been recorded on campus. As the campus consists of a northern and southern area, two separate pointclouds have been created. The map is available for download from the <a href="https://sm20598.github.io/downloads">Download</a> page.</p>
+<hr>
+<h2 id="survey-grade-prior-map">Survey-Grade Prior Map</h2>
+<p>Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is constructed via stitching of pointclouds that have been recorded on campus. As the campus consists of a northern and southern area, two separate pointclouds have been created. The map is available for download from the <a href="../download/#survey-grade-prior-map">Download</a> page.</p>
 <p><img alt="" src="../graphics/Pointcloud_TUHH_01.jpg"><br>
 <strong>Northern campus pointcloud</strong>
 <img alt="" src="../graphics/Pointcloud_TUHH_02.jpg"><br>
@@ -370,6 +371,10 @@
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
+        <span>
+          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
+        </span>
+    
     
       <span><a href="../download/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
@@ -378,13 +383,14 @@
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
