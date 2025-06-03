@@ -1,12 +1,44 @@
 # SLAM Tutorial
-MRCD was tested using a handful of state-of-the-art SLAM algorithms, which demonstrate the capabilities of the recorded dataset.
+MRCD was tested using a handful of state-of-the-art SLAM algorithms, which demonstrate the capabilities of the recorded dataset. We provide separate ROS2-Humble Docker images for all algorithms used in our paper, which can be downloaded on our [download](./download.md#docker-images) page. Below we provide step-by-step instructions on how to use the Docker images and how to run the SLAM algorithms on the dataset. You may want to check if the repositories in the list above have been updated. For example, the repository that we used for ORB SLAM3 features instable stereo-inertial SLAM at this time.
 
-## Algorithms
-We provide ROS2-Humble Docker images for each algorithm, which can be downloader here [LINK?]. Please find the list and according Repositories we used below.
+### Docker for MRCD
+First, follow the official install instructions for docker for [Debian](https://docs.docker.com/engine/install/debian/). Next, navigate to the directory where you downloaded the MRCD images. To create an image based on the downloaded archive, run
+```bash
+sudo docker import <archive_name>.tar <image_name>:<image_version>
+```
+* Substitute:
+    * `<archive_name>`: Name of the downloaded docker archive.
+    * `<image_name>`: Name under which the image should be saved on your machine.
+    * `<image_version>`: Version of the generated image. Defaults to 'latest'.
 
-### LiDAR-Inertial SLAM
+Check the list of images available on your machine with the command
+```
+sudo docker images
+```
 
-#### [Nav2 SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox)
+To start a container, please consider the individual instructions for each SLAM algorithm below. To able to visualize the results in RViz, you might have to run the following commands prior:
+```bash
+xhost + &> /dev/null
+export DISPLAY=:0 # or :1
+export XAUTHORITY=/home/<your_username>/.Xauthority
+```
+
+You can start an existing container with
+```bash
+sudo docker container start <container_name>
+```
+
+To open a terminal inside the container, run
+
+```bash
+sudo docker exec -it <container_name> bash
+```
+
+---
+
+## LiDAR-Inertial SLAM
+
+### [Nav2 SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox)
 
 * Navigate to the directory containing the SLAM Toolbox docker container archive and run the following command to convert the archive into a runnable docker container. 
 * Substitute:
@@ -65,7 +97,9 @@ ros2 bag play /dataset_files/<path_to_bagfile> --clock
 
 ![](img/ST_RViz.png)<br>
 
-#### [Google Cartographer 2D & 3D](https://github.com/cartographer-project/cartographer)
+---
+
+### [Google Cartographer 2D & 3D](https://github.com/cartographer-project/cartographer)
 
 ```bash
 sudo docker import mrcd_cartographer_container.tar <image_name>:<image_version>
@@ -99,7 +133,7 @@ sudo docker container run -it \
 docker exec -it <container_name> bash
 ```
 
-##### 2D Cartographer 
+#### 2D Cartographer 
 * For 2D SLAM run the following commands.
 * Substitute:
     * `<path_to_bagfile>`: Path to directory of the bagfile to play inside the previously mounted volume.
@@ -123,7 +157,7 @@ ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/Traject
 ![](img/GC2D_RViz.png)<br>
 
 
-##### 3D Cartographer 
+#### 3D Cartographer 
 
 * For 3D SLAM run the following commands.
 * Substitute:
@@ -147,7 +181,9 @@ ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/Traject
 
 ![](img/GC3D_RViz.png)<br>
 
-#### Fast LiDAR-Inertial Odometry ([FAST-LIO](https://github.com/hku-mars/FAST_LIO.git))
+---
+
+### [Fast LiDAR-Inertial Odometry (FAST-LIO)](https://github.com/hku-mars/FAST_LIO.git)
 
 ```bash
 sudo docker import mrcd_fastlio_container.tar <image_name>:<image_version>
@@ -198,9 +234,11 @@ ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
 
 ![](img/FL_RViz.png)<br>
 
-### Visual-Inertial SLAM
+---
 
-#### [NVIDIA ISSAC ROS Visual SLAM](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam)
+## Visual-Inertial SLAM
+
+### [NVIDIA ISSAC ROS Visual SLAM](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam)
 
 * For running the NVIDIA Containers, the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html) is used to achieve access to cuda and gpu acceleration.
 * With the following run command, the gpu acceleration is allowed.
@@ -241,11 +279,14 @@ rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 
 ![](img/NIRV_RViz.png)<br>
 
-#### Open Visual-Inertial Navigation System [OpenVINS](https://github.com/rpng/open_vins/tree/master)
-#### Real-Time Appearance-Based Mapping [RTAB-map](https://github.com/introlab/rtabmap_ros)
+---
 
-### Visual SLAM
-* ORB SLAM 3 [ORB-SLAM3-ROS2](https://github.com/jnskkmhr/orbslam3)
+### [Open Visual-Inertial Navigation System (OpenVINS)](https://github.com/rpng/open_vins/tree/master)
+---
 
-## How To Use?
-For evaluation using the aforementioned SLAM algorithms, we recommend using our provided [Docker Images](link) and follow the install instructions in the Install guide.. However, you may want to check if the repositories in the list above have been updated. For example, the repository that we used for ORB SLAM3 features instable stereo-inertial SLAM at this time.
+### [Real-Time Appearance-Based Mapping (RTAB-map)](https://github.com/introlab/rtabmap_ros)
+
+---
+
+## Visual SLAM
+### [ORB-SLAM-3 (ORB-SLAM3-ROS2)](https://github.com/jnskkmhr/orbslam3)

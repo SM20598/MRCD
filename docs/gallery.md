@@ -145,6 +145,8 @@ Our logo shows a Hawksbill Tutle 😉
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](graphics_resized/town_trees_gtpreview_cut.png)
 
+### Survey-Grade Prior Map
+
 **Northern Campus Pointcloud** 
 ![](graphics/Pointcloud_TUHH_01.jpg)
 

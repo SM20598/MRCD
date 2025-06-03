@@ -1,5 +1,7 @@
 # About MRCD
-Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the [Download](https://sm20598.github.io/downloads) page.
+Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the [Download](./download.md#dataset) page.
+
+---
 
 ## Hardware Specifications
 - Four-wheeld robot platform [Clearpath Jackal UGV](https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/)
@@ -8,6 +10,7 @@ Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a
 - Ground-facing camera [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/)
 - Top RTK-GNSS Module [Emlid Reach M2](https://emlid.com/de/reach/)
 
+---
 
 ## Available Topics
 | Topic Name | Type | Frequency (Hz) |
@@ -51,8 +54,10 @@ Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a
 |*/zed\_node/pose*| [geometry\_msgs/msg/PoseStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseStamped.html) | 30  
 |*/zed\_node/pose\_with\_covariance*| [geometry\_msgs/msg/PoseWithCovarianceStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovarianceStamped.html) | 30  
 
+---
+
 ## Ground Truth
-As you see in the table above, MRCD contains a topic for discrete gound truth. Our ground truth is based on B-splines (for further information we recommend the works of [Sommer & Usenko](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sommer_Efficient_Derivative_Computation_for_Cumulative_B-Splines_on_Lie_Groups_CVPR_2020_paper.pdf) and [Nguyen](https://mcdviral.github.io/images/bspline_technical_note.pdf)). For external downloads, both continuous- and discrete-time ground truth sampled with 10 Hz, please visit our [Download](https://sm20598.github.io/downloads) page.
+As you see in the table above, MRCD contains a topic for discrete gound truth. Our ground truth is based on B-splines (for further information we recommend the works of [Sommer & Usenko](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sommer_Efficient_Derivative_Computation_for_Cumulative_B-Splines_on_Lie_Groups_CVPR_2020_paper.pdf) and [Nguyen](https://mcdviral.github.io/images/bspline_technical_note.pdf)). For external downloads, both continuous- and discrete-time ground truth sampled with 10 Hz, please visit our [Download](./download.md#sequences) page.
 
 **Discrete time ground truth** is recommended for traditional benchmark evaluation. For this purpose, you can use *sampled-10Hz.csv* files. A snippet is given below.
 
@@ -64,7 +69,7 @@ As you see in the table above, MRCD contains a topic for discrete gound truth. O
 1733232244.516222,-11.376447,419.839133,13.048638,-0.001201,0.002303,0.986867,0.161513
 ```
 
-**Continuous-time Ground Truth** is provided in the form of B-splines in files named *spline.csv*, which contain a list of *control points*. Please find a snippet below. For reading the *spline.csv* files, we refer to the example Python script in [MCD](https://mcdviral.github.io/Groundtruth.html). In addition, please find our docker image for running the script in our [Download](https://sm20598.github.io/downloads) page.
+**Continuous-time Ground Truth** is provided in the form of B-splines in files named *spline.csv*, which contain a list of *control points*. Please find a snippet below. For reading the *spline.csv* files, we refer to the example Python script in [MCD](https://mcdviral.github.io/Groundtruth.html). In addition, please find our docker image for running the script in our [Download](./download.md#sequences) page.
 
 ```
 Dt: 0.01, Order: 4, Knots: 18630, MinTime: 1733232244.216222, MaxTime: 1733232430.486222, OtrItr: 0
@@ -74,8 +79,10 @@ Dt: 0.01, Order: 4, Knots: 18630, MinTime: 1733232244.216222, MaxTime: 173323243
 3,1733232244.246222,-11.38113488883607,419.832506908778,13.05035379930804,-0.001305077430043593,0.002090431447356799,0.9868645309147559,0.1615311873653645
 ```
 
-### Survey-grade prior map
-Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is constructed via stitching of pointclouds that have been recorded on campus. As the campus consists of a northern and southern area, two separate pointclouds have been created. The map is available for download from the [Download](https://sm20598.github.io/downloads) page.
+---
+
+## Survey-Grade Prior Map
+Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is constructed via stitching of pointclouds that have been recorded on campus. As the campus consists of a northern and southern area, two separate pointclouds have been created. The map is available for download from the [Download](./download.md#survey-grade-prior-map) page.
 
 ![](graphics/Pointcloud_TUHH_01.jpg)<br>
 **Northern campus pointcloud**
