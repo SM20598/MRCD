@@ -248,7 +248,7 @@ ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
     * `<container_name>`: Name under which the container should be saved on your machine.
     * `<image_name>`: Image name selected in previous step.
     * `<image_version>`: Image version selected in previous step.
-```
+```bash
 sudo docker container run -it \
     --runtime=nvidia \
     --gpus all \
@@ -282,11 +282,139 @@ rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 ---
 
 ### [Open Visual-Inertial Navigation System (OpenVINS)](https://github.com/rpng/open_vins/tree/master)
+
+* After creating the OpenVINS image you can run a container with the following command
+* Substitute
+    * `<path_to_bag_files>`: Path to directory holding the downloaded dataset sequences.
+    * `<container_name>`: Name under which the container should be saved on your machine.
+    * `<image_name>`: Image name selected in previous step.
+    * `<image_version>`: Image version selected in previous step.
+
+```bash
+sudo docker container run -it \
+    -v <path_to_bag_files>:/dataset_files/ \
+    --name <container_name> \
+    --net=host \
+    --gpus all \
+    --privileged \
+    --env=\"NVIDIA_DRIVER_CAPABILITIES=all\" \
+    --env=\"QT_X11_NO_MITSHM=1\" \
+    --env="DISPLAY=$DISPLAY" \
+    --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:rw\" \
+    <image_name>:<image_version> \
+    bash
+```
+
+* OpenVINS package can be found in the ROS2 workspace
+```bash
+cd /ros2_ws/src/open_vins
+```
+* Build and source using the following command
+```bash
+colcon build --event-handlers console_cohesion+ && source install/setup.bash
+```
+* To run OpenVINS, you will need two terminals, one for the OpenVINS node and one for the bag playback.
+* Substitute:
+    * `<path_to_bagfile>`: Path to directory of the bagfile to play inside the previously mounted volume.
+
+```bash
+# Launch OpenVINS
+ros2 launch ov_msckf subscribe_mrcd.launch.py
+
+# Play bagfile
+ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-size 10000
+```
+
 ---
 
 ### [Real-Time Appearance-Based Mapping (RTAB-map)](https://github.com/introlab/rtabmap_ros)
+* Note that we used the same container as for the NVIDIA ISSAC ROS Visual SLAM.
+* With the following run command, the gpu acceleration is allowed.
+* Be aware that to run this container, a NVIDIA gpu and CUDA are required.
+* Substitute:
+    * `<path_to_bag_files>`: Path to directory holding the downloaded dataset sequences.
+    * `<container_name>`: Name under which the RTAB-map container should be saved on your machine.
+    * `<image_name>`: Image name of RTAB-map image.
+    * `<image_version>`: Image version of RTAB-map image.
+```bash
+sudo docker container run -it \
+    --runtime=nvidia \
+    --gpus all \
+    -v <path_to_bag_files>:/dataset_files/ \
+    --name <container_name> \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    <image_name>:<image_version> \
+    bash
+```
 
+* You will find the RTAB-map package in the ROS2 workspace.
+```bash
+cd /workspaces/ros2_ws/src/rtabmap_ros
+```
+
+* Building (and Sourcing) is done with standard colcon build with symlink option. However as building takes some time, we recommend building `rtabmap_launch` package if you only edit launch configurations.
+```bash
+colcon build --symlink-install --packages-select rtabmap_launch && source install/setup.bash
+```
+
+* To run RTAB-map, you will need three terminals, one for the RTAB-map node, one for the bag playback and for launching Image rectification node of NVIDIA ISSAC ROS (which is why we deploy NVIDIA ISAAC ROS container).
+* Substitute:
+    * `<path_to_bagfile>`: Path to directory of the bagfile to play inside the previously mounted volume.
+
+```bash
+# Launch RTAB-map
+ros2 launch rtabmap_launch mrcd_rtabmap.launch.py use_sim_time:=true approx_sync:=true
+
+# Play bagfile
+ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-size 10000
+
+# Launch Image rectification node
+ros2 launch rtabmap_launch image_rect.launch.py
+```
 ---
 
 ## Visual SLAM
 ### [ORB-SLAM-3 (ORB-SLAM3-ROS2)](https://github.com/jnskkmhr/orbslam3)
+* After creating the ORB-SLAM3 image you can run a container with the following command
+* Substitute
+    * `<path_to_bag_files>`: Path to directory holding the downloaded dataset sequences.
+    * `<container_name>`: Name under which the container should be saved on your machine.
+    * `<image_name>`: Image name selected in previous step.
+    * `<image_version>`: Image version selected in previous step.
+
+```bash
+sudo docker container run --init -it \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+    --privileged \
+    --net=host \
+    --name <container_name> \
+    -v <path_to_bag_files>:/dataset_files/ \
+    <image_name>:<image_version> \
+    bash
+```
+
+* ROS2 workspace can be entered with
+```bash
+cd /colcon_ws/
+```
+
+* Build ORB3 package and source using the following command
+```bash
+colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w" --symlink-install --packages-select orbslam3_jns && source install/setup.bash
+```
+
+* To run ORB-SLAM3, you will need two terminals, one for the ORB-SLAM3 node and one for the bag playback.
+* Substitute:
+    * `<path_to_bagfile>`: Path to directory of the bagfile to play inside the previously mounted volume.
+
+```bash
+# Launch ORB-SLAM3
+ros2 launch orbslam3_jns mrcd_stereo.launch.yaml
+
+# Play bagfile
+ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-size 10000
+```
