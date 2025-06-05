@@ -34,6 +34,8 @@ To open a terminal inside the container, run
 sudo docker exec -it <container_name> bash
 ```
 
+**Note** For those algorithms using Rviz2 for visualization, you need to have Rviz2 installed on your host machine.
+
 ---
 
 ## LiDAR-Inertial SLAM
@@ -95,9 +97,9 @@ ros2 launch mrcd_slam_toolbox rviz.launch
 ros2 bag play /dataset_files/<path_to_bagfile> --clock
 ```
 
-![](img/ST_RViz.png)<br>
+![Rviz2 Screenshot of Nav2 SLAM Toolbox](img/ST_RViz.png)<br>
 
----
+
 
 ### [Google Cartographer 2D & 3D](https://github.com/cartographer-project/cartographer)
 
@@ -154,7 +156,7 @@ ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/Finish
 ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
 ```
 
-![](img/GC2D_RViz.png)<br>
+![Rviz2 Screenshot of 2D Cartographer](img/GC2D_RViz.png)
 
 
 #### 3D Cartographer 
@@ -179,9 +181,9 @@ ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/Finish
 ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
 ```
 
-![](img/GC3D_RViz.png)<br>
+![Rviz2 Screenshot of 3D Cartographer](img/GC3D_RViz.png)<br>
 
----
+
 
 ### [Fast LiDAR-Inertial Odometry (FAST-LIO)](https://github.com/hku-mars/FAST_LIO.git)
 
@@ -232,7 +234,7 @@ ros2 bag play /dataset_files/<path_to_bagfile> --clock
 ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
 ```
 
-![](img/FL_RViz.png)<br>
+![Rviz2 Screenshot of Fast-LIO](img/FL_RViz.png)<br>
 
 ---
 
@@ -277,9 +279,9 @@ ros2 bag play -p /dataset_files/<path_to_bagfile> --remap /mrcd_robot/tf:=/tf /m
 rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 ```
 
-![](img/NIRV_RViz.png)<br>
+![Screenshot of RTAB-maps inbuilt Visualization Window](img/NIRV_RViz.png)<br>
 
----
+
 
 ### [Open Visual-Inertial Navigation System (OpenVINS)](https://github.com/rpng/open_vins/tree/master)
 
@@ -291,16 +293,16 @@ rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
     * `<image_version>`: Image version selected in previous step.
 
 ```bash
-sudo docker container run -it \
+ sudo docker container run -it \
     -v <path_to_bag_files>:/dataset_files/ \
-    --name <container_name> \
+    --name test_mrcd_openvins_container \
     --net=host \
     --gpus all \
     --privileged \
-    --env=\"NVIDIA_DRIVER_CAPABILITIES=all\" \
-    --env=\"QT_X11_NO_MITSHM=1\" \
-    --env="DISPLAY=$DISPLAY" \
-    --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:rw\" \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env QT_X11_NO_MITSHM=1 \
+    --env DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     <image_name>:<image_version> \
     bash
 ```
@@ -374,6 +376,9 @@ ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-siz
 # Launch Image rectification node
 ros2 launch rtabmap_launch image_rect.launch.py
 ```
+
+![Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM](img/RTABMAP_Viz.png)<br>
+
 ---
 
 ## Visual SLAM
