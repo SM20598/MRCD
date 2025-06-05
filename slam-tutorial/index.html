@@ -160,6 +160,7 @@ export XAUTHORITY=/home/&lt;your_username&gt;/.Xauthority
 <p>To open a terminal inside the container, run</p>
 <pre><code class="language-bash">sudo docker exec -it &lt;container_name&gt; bash
 </code></pre>
+<p><strong>Note</strong> For those algorithms using Rviz2 for visualization, you need to have Rviz2 installed on your host machine.</p>
 <hr>
 <h2 id="lidar-inertial-slam">LiDAR-Inertial SLAM</h2>
 <h3 id="nav2-slam-toolbox"><a href="https://github.com/SteveMacenski/slam_toolbox">Nav2 SLAM Toolbox</a></h3>
@@ -222,8 +223,7 @@ ros2 launch mrcd_slam_toolbox rviz.launch
 # Play bagfile
 ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
 </code></pre>
-<p><img alt="" src="../img/ST_RViz.png"><br></p>
-<hr>
+<p><figure id="_figure-1"><img alt="Rviz2 Screenshot of Nav2 SLAM Toolbox" src="../img/ST_RViz.png"><figcaption>Figure 1: Rviz2 Screenshot of Nav2 SLAM Toolbox</figcaption></figure><br></p>
 <h3 id="google-cartographer-2d-3d"><a href="https://github.com/cartographer-project/cartographer">Google Cartographer 2D &amp; 3D</a></h3>
 <pre><code class="language-bash">sudo docker import mrcd_cartographer_container.tar &lt;image_name&gt;:&lt;image_version&gt;
 </code></pre>
@@ -279,7 +279,7 @@ ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/Finish
 # Call service to query trajectory to evaluate
 ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
 </code></pre>
-<p><img alt="" src="../img/GC2D_RViz.png"><br></p>
+<p><figure id="_figure-2"><img alt="Rviz2 Screenshot of 2D Cartographer" src="../img/GC2D_RViz.png"><figcaption>Figure 2: Rviz2 Screenshot of 2D Cartographer</figcaption></figure></p>
 <h4 id="3d-cartographer">3D Cartographer</h4>
 <ul>
 <li>For 3D SLAM run the following commands.</li>
@@ -302,8 +302,7 @@ ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/Finish
 # Call service to query trajectory to evaluate
 ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
 </code></pre>
-<p><img alt="" src="../img/GC3D_RViz.png"><br></p>
-<hr>
+<p><figure id="_figure-3"><img alt="Rviz2 Screenshot of 3D Cartographer" src="../img/GC3D_RViz.png"><figcaption>Figure 3: Rviz2 Screenshot of 3D Cartographer</figcaption></figure><br></p>
 <h3 id="fast-lidar-inertial-odometry-fast-lio"><a href="https://github.com/hku-mars/FAST_LIO.git">Fast LiDAR-Inertial Odometry (FAST-LIO)</a></h3>
 <pre><code class="language-bash">sudo docker import mrcd_fastlio_container.tar &lt;image_name&gt;:&lt;image_version&gt;
 </code></pre>
@@ -353,7 +352,7 @@ ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
 # Call service to save 3D Map after SLAM has finished
 ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
 </code></pre>
-<p><img alt="" src="../img/FL_RViz.png"><br></p>
+<p><figure id="_figure-4"><img alt="Rviz2 Screenshot of Fast-LIO" src="../img/FL_RViz.png"><figcaption>Figure 4: Rviz2 Screenshot of Fast-LIO</figcaption></figure><br></p>
 <hr>
 <h2 id="visual-inertial-slam">Visual-Inertial SLAM</h2>
 <h3 id="nvidia-issac-ros-visual-slam"><a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">NVIDIA ISSAC ROS Visual SLAM</a></h3>
@@ -397,8 +396,7 @@ ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --remap /mrcd_robot/tf:=
 # Launch preconfigured visualization
 rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 </code></pre>
-<p><img alt="" src="../img/NIRV_RViz.png"><br></p>
-<hr>
+<p><figure id="_figure-5"><img alt="Screenshot of RTAB-maps inbuilt Visualization Window" src="../img/NIRV_RViz.png"><figcaption>Figure 5: Screenshot of RTAB-maps inbuilt Visualization Window</figcaption></figure><br></p>
 <h3 id="open-visual-inertial-navigation-system-openvins"><a href="https://github.com/rpng/open_vins/tree/master">Open Visual-Inertial Navigation System (OpenVINS)</a></h3>
 <ul>
 <li>After creating the OpenVINS image you can run a container with the following command</li>
@@ -410,16 +408,16 @@ rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 </ul>
 </li>
 </ul>
-<pre><code class="language-bash">sudo docker container run -it \
+<pre><code class="language-bash"> sudo docker container run -it \
     -v &lt;path_to_bag_files&gt;:/dataset_files/ \
-    --name &lt;container_name&gt; \
+    --name test_mrcd_openvins_container \
     --net=host \
     --gpus all \
     --privileged \
-    --env=\"NVIDIA_DRIVER_CAPABILITIES=all\" \
-    --env=\"QT_X11_NO_MITSHM=1\" \
-    --env="DISPLAY=$DISPLAY" \
-    --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:rw\" \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env QT_X11_NO_MITSHM=1 \
+    --env DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     &lt;image_name&gt;:&lt;image_version&gt; \
     bash
 </code></pre>
@@ -498,6 +496,7 @@ ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --clock --read-ahead-que
 # Launch Image rectification node
 ros2 launch rtabmap_launch image_rect.launch.py
 </code></pre>
+<p><figure id="_figure-6"><img alt="Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM" src="../img/RTABMAP_Viz.png"><figcaption>Figure 6: Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM</figcaption></figure><br></p>
 <hr>
 <h2 id="visual-slam">Visual SLAM</h2>
 <h3 id="orb-slam-3-orb-slam3-ros2"><a href="https://github.com/jnskkmhr/orbslam3">ORB-SLAM-3 (ORB-SLAM3-ROS2)</a></h3>
