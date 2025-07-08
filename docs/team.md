@@ -8,7 +8,7 @@ Below, you find detailed information on the main authors of MRCD. If you are int
 
 <div class="team">
     <div class="imgContainerLeft">
-        <img style="float: right;" src="/img/noelblunder.jpg" width="200">
+        <img style="float: right;" src="/img/justinziegenbein_.jpg" width="200">
         <p> <b> Justin Ziegenbein </b> <br />
             <i> Researcher at ITL (2019-25) </i>
         </p>

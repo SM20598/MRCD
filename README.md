@@ -26,9 +26,9 @@ For more information, please find our publication below. If you use MRCD or refe
 ```bibtex
 @article{mrcd2025,
   title={MRCD: Mobile Robot Campus Dataset for Evaluating SLAM Algorithms on Wheeled Robots},
-  author={Doe, John},
-  journal={arXiv},
-  year={2025}
+  author={Coming},
+  journal={Coming},
+  year={Coming}
 }
 ```
 
