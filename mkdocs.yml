@@ -2,8 +2,8 @@ site_name: MRCD
 repo_url: https://sm20598.github.io/MRCD/
 nav:
   - Home: README.md
+  - Dataset Information: user-guide.md
   - Download: download.md
-  - User Guide: user-guide.md
   - SLAM Tutorial: slam-tutorial.md
   - Release Notes: release-notes.md
   - Contribute: contribute.md

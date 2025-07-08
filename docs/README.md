@@ -15,7 +15,7 @@ Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humbl
 * Comprehensive bags, including all sensor modalities and recordings
 * Additional lightweight bags, excluding visual data
 * High resolution large scale survey grade prior map of the campus environment
-* A handful of ROS2 Humble SOTA SLAM algorithms.
+* [Docker Images](./download.md#docker-images) for Humble SOTA SLAM algorithms.
 
 ## Notes:
 We are open to contributions to our dataset. Please feel free to raise an [issue](https://github.com/SM20598/MRCD/issues) or open a [discussion](https://github.com/SM20598/MRCD/discussions) on our [Github](https://github.com/SM20598/MRCD) 🙃
