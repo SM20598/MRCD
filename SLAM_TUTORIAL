@@ -1,0 +1,25 @@
+# ORB3 VSLAM
+	you might have to set $DISPLAY variable
+	$ export DISPLAY=1
+	$ xhost +local:docker
+
+	(no need to source anymore)
+
+	$ docker import tar_files/mrcd_orb3slam_container.tar mrcd_orb3slam_image:latest
+
+	$ docker container run --init -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro --privileged --net=host --name mrcd_orb3slam_container -v /media/csm1063/Extreme\ Pro/:/data mrcd_orb3slam_image bash
+	or 
+	$ docker container start mrcd_orb3slam_con
+
+	$ docker exec -it mrcd_orb3slam_con bash
+
+	$ cd /colcon_ws
+	$ colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w" --symlink-install --packages-select orbslam3_jns
+	
+	$ ros2 bag play [MY_BAG] --clock -p
+	$ ros2 launch orbslam3_jns mrcd_stereo.launch.yaml
+	
+# RTABMAP
+
+workspace under /workspaces/ros2_ws
+

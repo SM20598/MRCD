@@ -151,4 +151,4 @@ Our logo shows a Hawksbill Tutle 😉
 ![](graphics/Pointcloud_TUHH_01.jpg)
 
 **Southern Campus Pointcloud** 
-![](graphics/Pointcloud_TUHH_01.jpg)
+![](graphics/Pointcloud_TUHH_02.jpg)

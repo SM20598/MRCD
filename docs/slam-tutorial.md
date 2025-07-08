@@ -200,12 +200,12 @@ sudo docker import mrcd_fastlio_container.tar <image_name>:<image_version>
 
 ```bash
 sudo docker container run -it \
-    -v <path_to_bag_files>:/dataset_files/ \
-    --name <container_name> \
     --net=host \
     --privileged \
     --env="DISPLAY=$DISPLAY" \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
+    --name <container_name> \
+    -v <path_to_bag_files>:/dataset_files/ \
     <image_name>:<image_version> \
     bash
 ```
@@ -254,11 +254,11 @@ ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
 sudo docker container run -it \
     --runtime=nvidia \
     --gpus all \
-    -v <path_to_bag_files>:/dataset_files/ \
     --name <container_name> \
     --net=host \
     --privileged \
     --env="DISPLAY=$DISPLAY" \
+    -v <path_to_bag_files>:/dataset_files/ \
     --volume="${XAUTHORITY}:/root/.Xauthority" \
     <image_name>:<image_version> \
     bash
@@ -294,15 +294,14 @@ rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 
 ```bash
  sudo docker container run -it \
-    -v <path_to_bag_files>:/dataset_files/ \
-    --name test_mrcd_openvins_container \
     --net=host \
-    --gpus all \
     --privileged \
     --env NVIDIA_DRIVER_CAPABILITIES=all \
     --env QT_X11_NO_MITSHM=1 \
     --env DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    --name <container_name> \
+    -v <path_to_bag_files>:/dataset_files/ \
     <image_name>:<image_version> \
     bash
 ```
@@ -326,6 +325,9 @@ ros2 launch ov_msckf subscribe_mrcd.launch.py
 # Play bagfile
 ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-size 10000
 ```
+
+![Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM](img/OV_RViz.png)<br>
+
 
 ---
 
@@ -418,8 +420,12 @@ colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w" --symlink-install --packages-se
 
 ```bash
 # Launch ORB-SLAM3
-ros2 launch orbslam3_jns mrcd_stereo.launch.yaml
+ros2 launch orbslam3_jns mrcd_stereo.launch.py
 
 # Play bagfile
 ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-size 10000
+```
+
+![Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM](img/ORB_Viz.png)<br>
+
 ```
