@@ -6,7 +6,9 @@ The authors of this work are affiliated with the [Institute of Logistics Enginee
 If you are interested in working with us, please reachout to the institute or us directly.
 
 <body>
-    <img style="float: right;" src="../img/ITL_logo.png" width="300">
+    <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: right;" src="../img/ITL_logo.png" width="300">
+    </a>
     <p>
         <b> <a href="https://www3.tuhh.de/itl/en/"> Institute of Logistics Engineering</a> </b> <br />
         <i> Hamburg University of Technology</i> <br/>
