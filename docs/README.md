@@ -1,6 +1,9 @@
 # [MRCD: Mobile Robot Campus Dataset](https://sm20598.github.io/MRCD)
 
-Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for localization, navigation and perception in real-world outdoor environments. The dataset features a variety of challenging outdoor sequence for outdoor mobile robots.
+Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for localization, navigation and perception in real-world outdoor environments. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots that have been recorded at the campus of [Hamburg University of Technology](https://www.tuhh.de/tuhh/startseite). The data was gathered with our self-built robot *Laura*.
+
+
+![](photos_resized/laura.png#center)
 
 ## Highlights
 * Our dataset features high-quality sensor data—including:
@@ -34,3 +37,25 @@ For more information, please find our publication below. If you use MRCD or refe
 
 [Arxiv](https://arxiv.org/)
 [Supplementary Material](https://arxiv.org/)
+
+---
+
+This work was funded by the [Federal Ministry for Digital and Transport Affairs](https://www.bmv.de/DE/Home/home.html)
+
+<body>
+    <div class="imgContainerLeft">
+      <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: left;" src="img/ITL_logo.png" width="250" >
+      </a>
+    </div>
+    <div class="imgContainer">
+      <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: left;" src="img/TUHH_logo.png" width="140">
+      </a>
+    </div>
+    <div class="imgContainer">
+      <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: left;" src="img/BMV_Logo.png" width="200">
+      </a>
+    </div>
+</body>

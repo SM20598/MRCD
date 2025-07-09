@@ -4,11 +4,18 @@ Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a
 ---
 
 ## Hardware Specifications
+
 - Four-wheeld robot platform [Clearpath Jackal UGV](https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/)
 - Forward-facing camera [Zed2 Stereo Camera](https://www.stereolabs.com/en-de/products/zed-2)
 - Top LiDAR [Velodyne VLP-16 LiDAR](https://ouster.com/products/hardware/vlp-16)
 - Ground-facing camera [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/)
 - Top RTK-GNSS Module [Emlid Reach M2](https://emlid.com/de/reach/)
+
+---
+
+## ROS2 TF-Tree
+
+ ![](photos_resized/laura_robot_tf.png#center)
 
 ---
 
@@ -87,4 +94,4 @@ Ground truth trajectories are derived from a survey-grade prior map of the campu
 ![](graphics/Pointcloud_TUHH_01.jpg)<br>
 **Northern campus pointcloud**
 ![](graphics/Pointcloud_TUHH_02.jpg)<br>
-**Northern campus pointcloud**
+**Southern campus pointcloud**

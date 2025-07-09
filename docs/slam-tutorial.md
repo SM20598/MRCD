@@ -1,8 +1,9 @@
 # SLAM Tutorial
-MRCD was tested using a handful of state-of-the-art SLAM algorithms, which demonstrate the capabilities of the recorded dataset. We provide separate ROS2-Humble Docker images for all algorithms used in our paper, which can be downloaded on our [download](./download.md#docker-images) page. Below we provide step-by-step instructions on how to use the Docker images and how to run the SLAM algorithms on the dataset. You may want to check if the repositories in the list above have been updated. For example, the repository that we used for ORB SLAM3 features instable stereo-inertial SLAM at this time.
+MRCD was tested using state-of-the-art SLAM algorithms, which demonstrate the capabilities of the recorded dataset. We provide separate ROS2-Humble Docker images for all algorithms used in our paper, which can be downloaded on our [download](./download.md#docker-images) page. Below we provide step-by-step instructions on how to use the Docker images and how to run the SLAM algorithms on the dataset. You may want to check if the repositories in the list above have been updated. For example, the repository that we used for ORB SLAM3 features instable stereo-inertial SLAM at this time.
 
 ### Docker for MRCD
-First, follow the official install instructions for docker for [Debian](https://docs.docker.com/engine/install/debian/). Next, navigate to the directory where you downloaded the MRCD images. To create an image based on the downloaded archive, run
+- First, follow the official install instructions for docker for [Debian](https://docs.docker.com/engine/install/debian/).
+- Navigate to the directory where you downloaded the MRCD images. To create an image based on the downloaded archive, run
 ```bash
 sudo docker import <archive_name>.tar <image_name>:<image_version>
 ```
@@ -11,24 +12,25 @@ sudo docker import <archive_name>.tar <image_name>:<image_version>
     * `<image_name>`: Name under which the image should be saved on your machine.
     * `<image_version>`: Version of the generated image. Defaults to 'latest'.
 
-Check the list of images available on your machine with the command
+- Check the list of images available on your machine with the command
 ```
 sudo docker images
 ```
 
-To start a container, please consider the individual instructions for each SLAM algorithm below. To able to visualize the results in RViz, you might have to run the following commands prior:
+- To start a container, please consider the individual instructions for each SLAM algorithm below.
+- To be able to visualize the results in RViz, you might have to run the following commands prior:
 ```bash
 xhost + &> /dev/null
 export DISPLAY=:0 # or :1
 export XAUTHORITY=/home/<your_username>/.Xauthority
 ```
 
-You can start an existing container with
+- You can start an existing container with
 ```bash
 sudo docker container start <container_name>
 ```
 
-To open a terminal inside the container, run
+- To open a terminal inside the container, run
 
 ```bash
 sudo docker exec -it <container_name> bash
@@ -427,5 +429,3 @@ ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-siz
 ```
 
 ![Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM](img/ORB_Viz.png)<br>
-
-```

@@ -1,7 +1,7 @@
 # Gallery
 This is MRCD.
 
-![](img/logo.png) <br>
+![](img/logo.png#center) <br>
 Our logo shows a Hawksbill Tutle 😉
 
 ## Screenshots

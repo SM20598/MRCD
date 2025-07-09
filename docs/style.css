@@ -7,5 +7,26 @@ div.imgContainerLeft {
 
 div.imgContainer {
   float : left;
-  padding-left: 3em
+  padding-left: 2.5em
+}
+img[src*='#center'] {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+img[src*='#right'] {
+    display: block;
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+img[src*='#left'] {
+    display: block;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
