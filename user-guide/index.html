@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Dataset Information - MRCD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Dataset Information";
+        var mkdocs_page_input_path = "user-guide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../img/logo.png" class="logo" alt="Logo"/>
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Dataset Information</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hardware-specifications">Hardware Specifications</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ros2-tf-tree">ROS2 TF-Tree</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#available-topics">Available Topics</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ground-truth">Ground Truth</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#survey-grade-prior-map">Survey-Grade Prior Map</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../download/">Download</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../slam-tutorial/">SLAM Tutorial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../release-notes/">Release Notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contribute/">Contribute</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gallery/">Gallery</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../publications/">Publications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../team/">Team</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MRCD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Dataset Information</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="about-mrcd">About MRCD</h1>
+<p>Our dataset was recorded in ROS2 Humble. We recorded a total of 8 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the <a href="../download/#dataset">Download</a> page.</p>
+<hr>
+<h2 id="hardware-specifications">Hardware Specifications</h2>
+<ul>
+<li>Four-wheeld robot platform <a href="https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/">Clearpath Jackal UGV</a></li>
+<li>Forward-facing camera <a href="https://www.stereolabs.com/en-de/products/zed-2">Zed2 Stereo Camera</a></li>
+<li>Top LiDAR <a href="https://ouster.com/products/hardware/vlp-16">Velodyne VLP-16 LiDAR</a></li>
+<li>Ground-facing camera <a href="https://www.intelrealsense.com/depth-camera-d435/">Intel Realsense D435</a></li>
+<li>Top RTK-GNSS Module <a href="https://emlid.com/de/reach/">Emlid Reach M2</a></li>
+</ul>
+<hr>
+<h2 id="ros2-tf-tree">ROS2 TF-Tree</h2>
+<p><img alt="" src="../photos_resized/laura_robot_tf.png#center"></p>
+<hr>
+<h2 id="available-topics">Available Topics</h2>
+<table>
+<thead>
+<tr>
+<th>Topic Name</th>
+<th>Type</th>
+<th>Frequency (Hz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>/ground_truth</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Path.html">nav_msgs/msg/Path</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/platform/dynamic-joint_states</em></td>
+<td><a href="https://docs.ros.org/en/ros2_packages/rolling/api/control_msgs/msg/DynamicJointState.html">control_msgs/msg/DynamicJointState</a></td>
+<td>50</td>
+</tr>
+<tr>
+<td><em>/platform/joint_states</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html">sensor_msgs/msg/JointState</a></td>
+<td>50</td>
+</tr>
+<tr>
+<td><em>/platform/odom</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html">nav_msgs/msg/Odometry</a></td>
+<td>50</td>
+</tr>
+<tr>
+<td><em>/platform/odom/filtered</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html">nav_msgs/msg/Odometry</a></td>
+<td>50</td>
+</tr>
+<tr>
+<td><em>/cmd_vel_teleop</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/msg/Twist</a></td>
+<td>20</td>
+</tr>
+<tr>
+<td><em>/teleop/joy</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Joy.html">sensor_msg/Joy</a></td>
+<td>180</td>
+</tr>
+<tr>
+<td><em>/tf</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/msg/TFMessage</a></td>
+<td>228</td>
+</tr>
+<tr>
+<td><em>/tf_static</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/msg/TFMessage</a></td>
+<td>0.001</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>/scan</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html">sensor_msg/LaserScan</a></td>
+<td>10</td>
+</tr>
+<tr>
+<td><em>/velodyne_points</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs/msg/PointCloud2</a></td>
+<td>10</td>
+</tr>
+<tr>
+<td><em>/velodyne_packets</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/velodyne_msgs/html/msg/VelodyneScan.html">velodyne_msgs/msg/VelodyneScan</a></td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/aligned_depth_to_color/camera_info</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/CameraInfo.html">sensor_msgs/msg/CameraInfo</a></td>
+<td>15</td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/aligned_depth_to_color/image_raw</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a></td>
+<td>15</td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/color/camera_info</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/color/image_raw</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>rs_front/rs_front/color/metadata</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/realsense2_camera/html/msg/Metadata.html">realsense2_camera_msgs/msg/Metadata</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/depth/camera_info</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/CameraInfo.html">sensor_msgs/msg/CameraInfo</a></td>
+<td>15</td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/depth/color/points</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs/msg/PointCloud2</a></td>
+<td>15</td>
+</tr>
+<tr>
+<td><em>/rs_front/rs_front/depth/image_rect_raw</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a></td>
+<td>15</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>/rtk_gnss/tcpfix</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/NavSatFix.html">sensor_msgs/msg/NavSatFix</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td><em>/rtk_gnss/tcpvel</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TwistStamped.html">sensor_msgs/msg/TwistStamped</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>/zed_node/imu/data_raw</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Imu.html">sensor_msgs/msg/Imu</a></td>
+<td>200</td>
+</tr>
+<tr>
+<td><em>/zed_node/imu/mag</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/MagneticField.html">sensor_msgs/msg/MagneticField</a></td>
+<td>50</td>
+</tr>
+<tr>
+<td><em>/zed_node/left_raw/camera_info</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/CameraInfo.html">sensor_msgs/msg/ CameraInfo</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/zed_node/left_raw/image_raw_color</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/zed_node/right_raw/camera_info</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/CameraInfo.html">sensor_msgs/msg/ CameraInfo</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/zed_node/right_raw/image_raw_color</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/zed_node/odom</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html">nav_msgs/msg/Odometry</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/zed_node/path_map</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Path.html">nav_msgs/msg/Path</a></td>
+<td>2</td>
+</tr>
+<tr>
+<td><em>/zed_node/path_odom</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Path.html">nav_msgs/msg/path</a></td>
+<td>2</td>
+</tr>
+<tr>
+<td><em>/zed_node/point_cloud/cloud_registered</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs/msg/PointCloud2</a></td>
+<td>10</td>
+</tr>
+<tr>
+<td><em>/zed_node/pose</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseStamped.html">geometry_msgs/msg/PoseStamped</a></td>
+<td>30</td>
+</tr>
+<tr>
+<td><em>/zed_node/pose_with_covariance</em></td>
+<td><a href="https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovarianceStamped.html">geometry_msgs/msg/PoseWithCovarianceStamped</a></td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="ground-truth">Ground Truth</h2>
+<p>As you see in the table above, MRCD contains a topic for discrete gound truth. Our ground truth is based on B-splines (for further information we recommend the works of <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Sommer_Efficient_Derivative_Computation_for_Cumulative_B-Splines_on_Lie_Groups_CVPR_2020_paper.pdf">Sommer &amp; Usenko</a> and <a href="https://mcdviral.github.io/images/bspline_technical_note.pdf">Nguyen</a>). For external downloads, both continuous- and discrete-time ground truth sampled with 10 Hz, please visit our <a href="../download/#sequences">Download</a> page.</p>
+<p><strong>Discrete time ground truth</strong> is recommended for traditional benchmark evaluation. For this purpose, you can use <em>sampled-10Hz.csv</em> files. A snippet is given below.</p>
+<pre><code># t, x, y, z, qx, qy, qz, qw
+1733232244.216223,-11.381495,419.831974,13.050092,-0.001421,0.002207,0.986825,0.161768
+1733232244.316222,-11.380007,419.838220,13.049208,-0.001452,0.002527,0.986845,0.161641
+1733232244.416222,-11.376395,419.840031,13.049060,-0.001391,0.002309,0.986843,0.161660
+1733232244.516222,-11.376447,419.839133,13.048638,-0.001201,0.002303,0.986867,0.161513
+</code></pre>
+<p><strong>Continuous-time Ground Truth</strong> is provided in the form of B-splines in files named <em>spline.csv</em>, which contain a list of <em>control points</em>. Please find a snippet below. For reading the <em>spline.csv</em> files, we refer to the example Python script in <a href="https://mcdviral.github.io/Groundtruth.html">MCD</a>. In addition, please find our docker image for running the script in our <a href="../download/#sequences">Download</a> page.</p>
+<pre><code>Dt: 0.01, Order: 4, Knots: 18630, MinTime: 1733232244.216222, MaxTime: 1733232430.486222, OtrItr: 0
+0,1733232244.216222,-11.38167635118966,419.831709573794,13.04996049864827,-0.001487913908807536,0.002282587900610606,0.9867893981649208,0.1619853683947698
+1,1733232244.226222,-11.38149436097049,419.8319735971247,13.05009187779725,-0.00142456389288367,0.002201660148280774,0.9868312052885267,0.1617321723687045
+2,1733232244.236222,-11.38131456689262,419.8322401513307,13.0502227986052,-0.001339607412260437,0.002152985618908402,0.9868380617679345,0.1616917126850109
+3,1733232244.246222,-11.38113488883607,419.832506908778,13.05035379930804,-0.001305077430043593,0.002090431447356799,0.9868645309147559,0.1615311873653645
+</code></pre>
+<hr>
+<h2 id="survey-grade-prior-map">Survey-Grade Prior Map</h2>
+<p>Ground truth trajectories are derived from a survey-grade prior map of the campus environment. The map is constructed via stitching of pointclouds that have been recorded on campus. As the campus consists of a northern and southern area, two separate pointclouds have been created. The map is available for download from the <a href="../download/#survey-grade-prior-map">Download</a> page.</p>
+<p><img alt="" src="../graphics/Pointcloud_TUHH_01.jpg"><br>
+<strong>Northern campus pointcloud</strong>
+<img alt="" src="../graphics/Pointcloud_TUHH_02.jpg"><br>
+<strong>Southern campus pointcloud</strong></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../download/" class="btn btn-neutral float-right" title="Download">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../download/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>SLAM Tutorial - MRCD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SLAM Tutorial";
+        var mkdocs_page_input_path = "slam-tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../img/logo.png" class="logo" alt="Logo"/>
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../user-guide/">Dataset Information</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../download/">Download</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">SLAM Tutorial</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#docker-for-mrcd">Docker for MRCD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lidar-inertial-slam">LiDAR-Inertial SLAM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#nav2-slam-toolbox">Nav2 SLAM Toolbox</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#google-cartographer-2d-3d">Google Cartographer 2D &amp; 3D</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#2d-cartographer">2D Cartographer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3d-cartographer">3D Cartographer</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fast-lidar-inertial-odometry-fast-lio">Fast LiDAR-Inertial Odometry (FAST-LIO)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visual-inertial-slam">Visual-Inertial SLAM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#nvidia-issac-ros-visual-slam">NVIDIA ISSAC ROS Visual SLAM</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#open-visual-inertial-navigation-system-openvins">Open Visual-Inertial Navigation System (OpenVINS)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-time-appearance-based-mapping-rtab-map">Real-Time Appearance-Based Mapping (RTAB-map)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visual-slam">Visual SLAM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#orb-slam-3-orb-slam3-ros2">ORB-SLAM-3 (ORB-SLAM3-ROS2)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../release-notes/">Release Notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contribute/">Contribute</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gallery/">Gallery</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../publications/">Publications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../team/">Team</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MRCD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">SLAM Tutorial</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="slam-tutorial">SLAM Tutorial</h1>
+<p>MRCD was tested using state-of-the-art SLAM algorithms, which demonstrate the capabilities of the recorded dataset. We provide separate ROS2-Humble Docker images for all algorithms used in our paper, which can be downloaded on our <a href="../download/#docker-images">download</a> page. Below we provide step-by-step instructions on how to use the Docker images and how to run the SLAM algorithms on the dataset. You may want to check if the repositories in the list above have been updated. For example, the repository that we used for ORB SLAM3 features instable stereo-inertial SLAM at this time.</p>
+<h3 id="docker-for-mrcd">Docker for MRCD</h3>
+<ul>
+<li>First, follow the official install instructions for docker for <a href="https://docs.docker.com/engine/install/debian/">Debian</a>.</li>
+<li>Navigate to the directory where you downloaded the MRCD images. To create an image based on the downloaded archive, run</li>
+</ul>
+<pre><code class="language-bash">sudo docker import &lt;archive_name&gt;.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>
+<p>Substitute:</p>
+<ul>
+<li><code>&lt;archive_name&gt;</code>: Name of the downloaded docker archive.</li>
+<li><code>&lt;image_name&gt;</code>: Name under which the image should be saved on your machine.</li>
+<li><code>&lt;image_version&gt;</code>: Version of the generated image. Defaults to 'latest'.</li>
+</ul>
+</li>
+<li>
+<p>Check the list of images available on your machine with the command</p>
+</li>
+</ul>
+<pre><code>sudo docker images
+</code></pre>
+<ul>
+<li>To start a container, please consider the individual instructions for each SLAM algorithm below.</li>
+<li>To be able to visualize the results in RViz, you might have to run the following commands prior:</li>
+</ul>
+<pre><code class="language-bash">xhost + &amp;&gt; /dev/null
+export DISPLAY=:0 # or :1
+export XAUTHORITY=/home/&lt;your_username&gt;/.Xauthority
+</code></pre>
+<ul>
+<li>You can start an existing container with</li>
+</ul>
+<pre><code class="language-bash">sudo docker container start &lt;container_name&gt;
+</code></pre>
+<ul>
+<li>To open a terminal inside the container, run</li>
+</ul>
+<pre><code class="language-bash">sudo docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<p><strong>Note</strong> For those algorithms using Rviz2 for visualization, you need to have Rviz2 installed on your host machine.</p>
+<hr>
+<h2 id="lidar-inertial-slam">LiDAR-Inertial SLAM</h2>
+<h3 id="nav2-slam-toolbox"><a href="https://github.com/SteveMacenski/slam_toolbox">Nav2 SLAM Toolbox</a></h3>
+<ul>
+<li>Navigate to the directory containing the SLAM Toolbox docker container archive and run the following command to convert the archive into a runnable docker container. </li>
+<li>Substitute:<ul>
+<li><code>&lt;image_name&gt;</code>: Name under which the image should be saved on your machine.</li>
+<li><code>&lt;image_version&gt;</code>: Version of the generated image. Defaults to 'latest'.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker import mrcd_slamtoolbox_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Run the imported image as a docker container with the following command. </li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>Open additional 3 additional terminals for the running container.</li>
+<li>Substitute:<ul>
+<li><code>&lt;container_name&gt;</code>: Container name selected in previous step.</li>
+</ul>
+</li>
+<li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
+</ul>
+<pre><code class="language-bash">docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<ul>
+<li>Launch the following nodes in separate terminals:</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Basic EKF Node to provide the SLAM Toolbox with an `odom` frame 
+ros2 launch mrcd_slam_toolbox simple_ekf.launch.py 
+
+# SLAM Toolbox launch
+ros2 launch mrcd_slam_toolbox slam_toolbox_launch_online_sync.launch.py
+
+# Launch preconfigured RViz visualization
+ros2 launch mrcd_slam_toolbox rviz.launch
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+</code></pre>
+<p><figure id="_figure-1"><img alt="Rviz2 Screenshot of Nav2 SLAM Toolbox" src="../img/ST_RViz.png"><figcaption>Figure 1: Rviz2 Screenshot of Nav2 SLAM Toolbox</figcaption></figure><br></p>
+<h3 id="google-cartographer-2d-3d"><a href="https://github.com/cartographer-project/cartographer">Google Cartographer 2D &amp; 3D</a></h3>
+<pre><code class="language-bash">sudo docker import mrcd_cartographer_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Run the imported image as a docker container with the following command. </li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>Open additional additional terminals for the running container.</li>
+<li>Substitute:<ul>
+<li><code>&lt;container_name&gt;</code>: Container name selected in previous step.</li>
+</ul>
+</li>
+<li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
+</ul>
+<pre><code class="language-bash">docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<h4 id="2d-cartographer">2D Cartographer</h4>
+<ul>
+<li>For 2D SLAM run the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+<li>Note: The Cartographer is using additional offline optimization, which causes the algorithm to continue running for a while after the playback of the bagfile has stopped.</li>
+</ul>
+<pre><code class="language-bash"># Launch 2D Cartographer
+ros2 launch mrcd_cartographer demo_backpack_2d.launch.py
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+
+############# After optimization step is done #######################
+# Call service to finally adjust trajectory according to optimization
+ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory
+
+# Call service to query trajectory to evaluate
+ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
+</code></pre>
+<p><figure id="_figure-2"><img alt="Rviz2 Screenshot of 2D Cartographer" src="../img/GC2D_RViz.png"><figcaption>Figure 2: Rviz2 Screenshot of 2D Cartographer</figcaption></figure></p>
+<h4 id="3d-cartographer">3D Cartographer</h4>
+<ul>
+<li>For 3D SLAM run the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+<li>Note: The Cartographer is using additional offline optimization, which causes the algorithm to continue running for a while after the playback of the bagfile has stopped.</li>
+</ul>
+<pre><code class="language-bash"># Launch 3D Cartographer
+ros2 launch mrcd_cartographer demo_backpack_3d.launch.py
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+
+############# After optimization step is done #######################
+# Call service to finally adjust trajectory according to optimization
+ros2 service call /mrcd_robot/finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory
+
+# Call service to query trajectory to evaluate
+ros2 service call /mrcd_robot/trajectory_query cartographer_ros_msgs/srv/TrajectoryQuery
+</code></pre>
+<p><figure id="_figure-3"><img alt="Rviz2 Screenshot of 3D Cartographer" src="../img/GC3D_RViz.png"><figcaption>Figure 3: Rviz2 Screenshot of 3D Cartographer</figcaption></figure><br></p>
+<h3 id="fast-lidar-inertial-odometry-fast-lio"><a href="https://github.com/hku-mars/FAST_LIO.git">Fast LiDAR-Inertial Odometry (FAST-LIO)</a></h3>
+<pre><code class="language-bash">sudo docker import mrcd_fastlio_container.tar &lt;image_name&gt;:&lt;image_version&gt;
+</code></pre>
+<ul>
+<li>Run the imported image as a docker container with the following command. </li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    --name &lt;container_name&gt; \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>Open additional additional terminals for the running container.</li>
+<li>Substitute:<ul>
+<li><code>&lt;container_name&gt;</code>: Container name selected in previous step.</li>
+</ul>
+</li>
+<li>Note: The container automatically opens inside the underlying ROS2 workspace and sources the relevant <code>setup.bash</code> files.</li>
+</ul>
+<pre><code class="language-bash">docker exec -it &lt;container_name&gt; bash
+</code></pre>
+<ul>
+<li>To start the 3D SLAM, run the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch FAST-LIO
+ros2 launch mrcd_fast_lio2 mapping.launch.py
+
+# Play bagfile
+ros2 bag play /dataset_files/&lt;path_to_bagfile&gt; --clock
+
+# Call service to save 3D Map after SLAM has finished
+ros2 service call /mrcd_robot/map_save std_srvs/srv/Trigger
+</code></pre>
+<p><figure id="_figure-4"><img alt="Rviz2 Screenshot of Fast-LIO" src="../img/FL_RViz.png"><figcaption>Figure 4: Rviz2 Screenshot of Fast-LIO</figcaption></figure><br></p>
+<hr>
+<h2 id="visual-inertial-slam">Visual-Inertial SLAM</h2>
+<h3 id="nvidia-issac-ros-visual-slam"><a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam">NVIDIA ISSAC ROS Visual SLAM</a></h3>
+<ul>
+<li>For running the NVIDIA Containers, the <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html">NVIDIA Container Toolkit</a> is used to achieve access to cuda and gpu acceleration.</li>
+<li>With the following run command, the gpu acceleration is allowed.</li>
+<li>Be aware that to run this container, a NVIDIA gpu and CUDA are required.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    --runtime=nvidia \
+    --gpus all \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>To launch the nvidia Isaac ROS Visual SLAM, open 3 Terminals to the container and launch the following commands.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch Nvidia Isaac ROS Visual Slam
+ros2 launch mrcd_isaac_ros_visual_slam mrcd_visual_slam_core.launch.py
+
+# Play bagfile with tf remappings as the Slam node does not allow remapping on launch and with read ahead queue to accomodate large data volume through images
+ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --remap /mrcd_robot/tf:=/tf /mrcd_robot/tf_static:=tf_static  --clock --read-ahead-queue-size 10000
+
+# Launch preconfigured visualization
+rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
+</code></pre>
+<p><figure id="_figure-5"><img alt="Screenshot of RTAB-maps inbuilt Visualization Window" src="../img/NIRV_RViz.png"><figcaption>Figure 5: Screenshot of RTAB-maps inbuilt Visualization Window</figcaption></figure><br></p>
+<h3 id="open-visual-inertial-navigation-system-openvins"><a href="https://github.com/rpng/open_vins/tree/master">Open Visual-Inertial Navigation System (OpenVINS)</a></h3>
+<ul>
+<li>After creating the OpenVINS image you can run a container with the following command</li>
+<li>Substitute<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"> sudo docker container run -it \
+    --net=host \
+    --privileged \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env QT_X11_NO_MITSHM=1 \
+    --env DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    --name &lt;container_name&gt; \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>OpenVINS package can be found in the ROS2 workspace</li>
+</ul>
+<pre><code class="language-bash">cd /ros2_ws/src/open_vins
+</code></pre>
+<ul>
+<li>Build and source using the following command</li>
+</ul>
+<pre><code class="language-bash">colcon build --event-handlers console_cohesion+ &amp;&amp; source install/setup.bash
+</code></pre>
+<ul>
+<li>To run OpenVINS, you will need two terminals, one for the OpenVINS node and one for the bag playback.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch OpenVINS
+ros2 launch ov_msckf subscribe_mrcd.launch.py
+
+# Play bagfile
+ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --clock --read-ahead-queue-size 10000
+</code></pre>
+<p><figure id="_figure-6"><img alt="Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM" src="../img/OV_RViz.png"><figcaption>Figure 6: Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM</figcaption></figure><br></p>
+<hr>
+<h3 id="real-time-appearance-based-mapping-rtab-map"><a href="https://github.com/introlab/rtabmap_ros">Real-Time Appearance-Based Mapping (RTAB-map)</a></h3>
+<ul>
+<li>Note that we used the same container as for the NVIDIA ISSAC ROS Visual SLAM.</li>
+<li>With the following run command, the gpu acceleration is allowed.</li>
+<li>Be aware that to run this container, a NVIDIA gpu and CUDA are required.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the RTAB-map container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name of RTAB-map image.</li>
+<li><code>&lt;image_version&gt;</code>: Image version of RTAB-map image.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run -it \
+    --runtime=nvidia \
+    --gpus all \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    --name &lt;container_name&gt; \
+    --net=host \
+    --privileged \
+    --env="DISPLAY=$DISPLAY" \
+    --volume="${XAUTHORITY}:/root/.Xauthority" \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>You will find the RTAB-map package in the ROS2 workspace.</li>
+</ul>
+<pre><code class="language-bash">cd /workspaces/ros2_ws/src/rtabmap_ros
+</code></pre>
+<ul>
+<li>Building (and Sourcing) is done with standard colcon build with symlink option. However as building takes some time, we recommend building <code>rtabmap_launch</code> package if you only edit launch configurations.</li>
+</ul>
+<pre><code class="language-bash">colcon build --symlink-install --packages-select rtabmap_launch &amp;&amp; source install/setup.bash
+</code></pre>
+<ul>
+<li>To run RTAB-map, you will need three terminals, one for the RTAB-map node, one for the bag playback and for launching Image rectification node of NVIDIA ISSAC ROS (which is why we deploy NVIDIA ISAAC ROS container).</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch RTAB-map
+ros2 launch rtabmap_launch mrcd_rtabmap.launch.py use_sim_time:=true approx_sync:=true
+
+# Play bagfile
+ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --clock --read-ahead-queue-size 10000
+
+# Launch Image rectification node
+ros2 launch rtabmap_launch image_rect.launch.py
+</code></pre>
+<p><figure id="_figure-7"><img alt="Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM" src="../img/RTABMAP_Viz.png"><figcaption>Figure 7: Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM</figcaption></figure><br></p>
+<hr>
+<h2 id="visual-slam">Visual SLAM</h2>
+<h3 id="orb-slam-3-orb-slam3-ros2"><a href="https://github.com/jnskkmhr/orbslam3">ORB-SLAM-3 (ORB-SLAM3-ROS2)</a></h3>
+<ul>
+<li>After creating the ORB-SLAM3 image you can run a container with the following command</li>
+<li>Substitute<ul>
+<li><code>&lt;path_to_bag_files&gt;</code>: Path to directory holding the downloaded dataset sequences.</li>
+<li><code>&lt;container_name&gt;</code>: Name under which the container should be saved on your machine.</li>
+<li><code>&lt;image_name&gt;</code>: Image name selected in previous step.</li>
+<li><code>&lt;image_version&gt;</code>: Image version selected in previous step.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">sudo docker container run --init -it \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+    --privileged \
+    --net=host \
+    --name &lt;container_name&gt; \
+    -v &lt;path_to_bag_files&gt;:/dataset_files/ \
+    &lt;image_name&gt;:&lt;image_version&gt; \
+    bash
+</code></pre>
+<ul>
+<li>ROS2 workspace can be entered with</li>
+</ul>
+<pre><code class="language-bash">cd /colcon_ws/
+</code></pre>
+<ul>
+<li>Build ORB3 package and source using the following command</li>
+</ul>
+<pre><code class="language-bash">colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w" --symlink-install --packages-select orbslam3_jns &amp;&amp; source install/setup.bash
+</code></pre>
+<ul>
+<li>To run ORB-SLAM3, you will need two terminals, one for the ORB-SLAM3 node and one for the bag playback.</li>
+<li>Substitute:<ul>
+<li><code>&lt;path_to_bagfile&gt;</code>: Path to directory of the bagfile to play inside the previously mounted volume.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># Launch ORB-SLAM3
+ros2 launch orbslam3_jns mrcd_stereo.launch.py
+
+# Play bagfile
+ros2 bag play -p /dataset_files/&lt;path_to_bagfile&gt; --clock --read-ahead-queue-size 10000
+</code></pre>
+<p><figure id="_figure-8"><img alt="Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM" src="../img/ORB_Viz.png"><figcaption>Figure 8: Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM</figcaption></figure><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../download/" class="btn btn-neutral float-left" title="Download"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../release-notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
+        </span>
+    
+    
+      <span><a href="../download/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../release-notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

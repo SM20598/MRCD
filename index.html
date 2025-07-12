@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>MRCD</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "README.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="img/logo.png" class="logo" alt="Logo"/>
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#highlights">Highlights</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#publication">Publication:</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="user-guide/">Dataset Information</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="download/">Download</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="slam-tutorial/">SLAM Tutorial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="release-notes/">Release Notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="contribute/">Contribute</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="gallery/">Gallery</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="publications/">Publications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="team/">Team</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">MRCD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mrcd-mobile-robot-campus-dataset"><a href="https://sm20598.github.io/MRCD">MRCD: Mobile Robot Campus Dataset</a></h1>
+<p>Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for localization, navigation and perception in real-world outdoor environments. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots that have been recorded at the campus of <a href="https://www.tuhh.de/tuhh/startseite">Hamburg University of Technology</a>. The data was gathered with our self-built robot <em>Laura</em>.</p>
+<p><img alt="" src="photos_resized/laura.png#center"></p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>Our dataset features high-quality sensor data—including:</li>
+<li>📷 HD720 30 FPS stereo frontal camera streams</li>
+<li>☁️ High resolution visual frontal pointcloud</li>
+<li>📷 HD720 30 FPS mono depth + colored ground-facing camera streams </li>
+<li>📏 3D spinning LiDAR</li>
+<li>⬆️ High quality IMUs (raw accelerometer, gyroscope and magnetometer data) </li>
+<li>🛞 Odometry of our wheeled robot</li>
+<li>📍 Highly accurate GPS-measurements</li>
+<li>👣 Embedded discrete and continuous external ground truth</li>
+<li>Comprehensive bags, including all sensor modalities and recordings</li>
+<li>Additional lightweight bags, excluding visual data</li>
+<li>High resolution large scale survey grade prior map of the campus environment</li>
+<li><a href="download/#docker-images">Docker Images</a> for Humble SOTA SLAM algorithms.</li>
+</ul>
+<h2 id="notes">Notes:</h2>
+<p>We are open to contributions to our dataset. Please feel free to raise an <a href="https://github.com/SM20598/MRCD/issues">issue</a> or open a <a href="https://github.com/SM20598/MRCD/discussions">discussion</a> on our <a href="https://github.com/SM20598/MRCD">Github</a> 🙃</p>
+<h2 id="publication">Publication:</h2>
+<p>For more information, please find our publication below. If you use MRCD or reference our work, we kindly ask that you cite it as follows:</p>
+<pre><code class="language-bibtex">@article{mrcd2025,
+  title={MRCD: Mobile Robot Campus Dataset for Evaluating SLAM Algorithms on Wheeled Robots},
+  author={Doe, John},
+  journal={arXiv},
+  year={2025}
+}
+</code></pre>
+<p><a href="https://arxiv.org/">Arxiv</a>
+<a href="https://arxiv.org/">Supplementary Material</a></p>
+<hr>
+<p>This work was funded by the <a href="https://www.bmv.de/DE/Home/home.html">Federal Ministry for Digital and Transport Affairs</a></p>
+
+    <div class="imgContainerLeft">
+      <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: left;" src="img/ITL_logo.png" width="250">
+      </a>
+    </div>
+    <div class="imgContainer">
+      <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: left;" src="img/TUHH_logo.png" width="140">
+      </a>
+    </div>
+    <div class="imgContainer">
+      <a href="https://www3.tuhh.de/itl/en/">
+        <img style="float: left;" src="img/BMV_Logo.png" width="200">
+      </a>
+    </div>
+
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="user-guide/" class="btn btn-neutral float-right" title="Dataset Information">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://sm20598.github.io/MRCD/" class="fa fa-code-fork" style="color: #fcfcfc"> Sm20598</a>
+        </span>
+    
+    
+    
+      <span><a href="user-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-07-12 14:40:55.889215+00:00
+-->
