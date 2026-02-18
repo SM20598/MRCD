@@ -40,21 +40,17 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#highlights">Highlights</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset-content">Dataset Content</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#open-community-benchmark-challenge">Open-Community Benchmark Challenge</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#publication">Publication:</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="user-guide/">Dataset Information</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="download/">Download</a>
                 </li>
               </ul>
               <ul>
@@ -71,14 +67,6 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="gallery/">Gallery</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="publications/">Publications</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="team/">Team</a>
                 </li>
               </ul>
       </div>
@@ -105,43 +93,50 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mrcd-mobile-robot-campus-dataset"><a href="https://sm20598.github.io/MRCD">MRCD: Mobile Robot Campus Dataset</a></h1>
-<p>Welcome to the MRCD dataset for outdoor mobile wheeled robotics! This ROS2 Humble dataset is designed to support algorithm development and benchmarking for localization, navigation and perception in real-world outdoor environments. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots that have been recorded at the campus of <a href="https://www.tuhh.de/tuhh/startseite">Hamburg University of Technology</a>. The data was gathered with our self-built robot <em>Laura</em>.</p>
+<p>The Mobile Robot Campus Dataset (MRCD) presents a novel outdoor SLAM challenge dedicated to testing, evaluating, and developing SOTA algorithms.
+Our contribution includes diverse challenging, high-frequency robot sequences collected with a wheeled delivery robot, an commnunity-driven competition for modern SLAM algorithms and a qualitive benchmark of exisiting ROS2-based SLAM algorithms available online. With MRCD, we aim to contribute to the ongoing development of SLAM algorithms highlighting existing limitations and challenges, in particular related to ROS2 implementations, and hope to address open problems, issues, and challenges in a collaborative fashion.   </p>
 <p><img alt="" src="photos_resized/laura.png#center"></p>
-<h2 id="highlights">Highlights</h2>
+<h2 id="dataset-content">Dataset Content</h2>
+<p>MRCD provides several ROS2 bag files that include various sensor modalities:</p>
 <ul>
-<li>Our dataset features high-quality sensor data—including:</li>
 <li>📷 HD720 30 FPS stereo frontal camera streams</li>
 <li>☁️ High resolution visual frontal pointcloud</li>
 <li>📷 HD720 30 FPS mono depth + colored ground-facing camera streams </li>
 <li>📏 3D spinning LiDAR</li>
-<li>⬆️ High quality IMUs (raw accelerometer, gyroscope and magnetometer data) </li>
+<li>⬆️ High-frequent IMUs (raw accelerometer, gyroscope and magnetometer data) </li>
 <li>🛞 Odometry of our wheeled robot</li>
 <li>📍 Highly accurate GPS-measurements</li>
-<li>👣 Embedded discrete and continuous external ground truth</li>
-<li>Comprehensive bags, including all sensor modalities and recordings</li>
-<li>Additional lightweight bags, excluding visual data</li>
-<li>High resolution large scale survey grade prior map of the campus environment</li>
+<li>👣 Embedded discrete (+ external continuous) ground truth messages</li>
+<li>🌍 High resolution large scale survey grade prior map of the campus environment</li>
 <li><a href="download/#docker-images">Docker Images</a> for Humble SOTA SLAM algorithms.</li>
 </ul>
+<h2 id="open-community-benchmark-challenge">Open-Community Benchmark Challenge</h2>
+<p>In addition to our dataset, we present the MRCD-SLAM challenge, where reachers will have the opportunity to compete against eachother.</p>
 <h2 id="notes">Notes:</h2>
 <p>We are open to contributions to our dataset. Please feel free to raise an <a href="https://github.com/SM20598/MRCD/issues">issue</a> or open a <a href="https://github.com/SM20598/MRCD/discussions">discussion</a> on our <a href="https://github.com/SM20598/MRCD">Github</a> 🙃</p>
-<h2 id="publication">Publication:</h2>
-<p>For more information, please find our publication below. If you use MRCD or reference our work, we kindly ask that you cite it as follows:</p>
-<pre><code class="language-bibtex">@article{mrcd2025,
+<!-- ## Publication:
+For more information, please find our publication below. If you use MRCD or reference our work, we kindly ask that you cite it as follows:
+
+```bibtex
+@article{mrcd2025,
   title={MRCD: Mobile Robot Campus Dataset for Evaluating SLAM Algorithms on Wheeled Robots},
   author={Doe, John},
   journal={arXiv},
-  year={2025}
+  year={2026}
 }
-</code></pre>
-<p><a href="https://arxiv.org/">Arxiv</a>
-<a href="https://arxiv.org/">Supplementary Material</a></p>
-<hr>
-<p>This work was funded by the <a href="https://www.bmv.de/DE/Home/home.html">Federal Ministry for Digital and Transport Affairs</a></p>
+``` -->
+<!-- 
+[Arxiv](https://arxiv.org/)
+[Supplementary Material](https://arxiv.org/) -->
 
+<!-- ---
+
+This work was funded by the [Federal Ministry for Digital and Transport Affairs](https://www.bmv.de/DE/Home/home.html)
+
+<body>
     <div class="imgContainerLeft">
       <a href="https://www3.tuhh.de/itl/en/">
-        <img style="float: left;" src="img/ITL_logo.png" width="250">
+        <img style="float: left;" src="img/ITL_logo.png" width="250" >
       </a>
     </div>
     <div class="imgContainer">
@@ -154,7 +149,7 @@
         <img style="float: left;" src="img/BMV_Logo.png" width="200">
       </a>
     </div>
-
+</body> -->
               
             </div>
           </div><footer>
@@ -206,5 +201,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-07-29 18:44:53.718729+00:00
+Build Date UTC : 2026-02-18 14:39:06.435434+00:00
 -->
