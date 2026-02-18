@@ -1,5 +1,9 @@
 # Releases
 
+
+## 1.1 - 2026-02-18
+- Revamp of website, new bag files
+
 ## 1.1 - 2025-07-29
 - Upload of full data set
 
