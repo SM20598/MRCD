@@ -3,7 +3,7 @@ repo_url: https://sm20598.github.io/MRCD/
 nav:
   - Home: README.md
   - Dataset Information: user-guide.md
-  # - Download: download.md
+  - Download: download.md
   - SLAM Tutorial: slam-tutorial.md
   - Release Notes: release-notes.md
   - Contribute: contribute.md
@@ -14,7 +14,7 @@ nav:
   - Gallery: gallery.md
   # - Tutorials: tutorials.md
   # - Publications: publications.md
-  # - Team: team.md
+  - Team: team.md
   # - Videos: videos.md (ADD LATER)
 theme:
   name: readthedocs
