@@ -1,0 +1,3 @@
+mkdocs==1.6.1
+mkdocs-caption==1.3.0
+mkdocs-resize-images==1.0.1
