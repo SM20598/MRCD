@@ -10,12 +10,9 @@ nav:
   # - Contact: contact.md (ADD LATER)
   # - License: license.md (ADD LATER?)
   # - Acknowledgements: acknowledgements.md (ADD LATER?)
-  # - Bibliography: bibliography.md
-  - Gallery: gallery.md
-  # - Tutorials: tutorials.md
-  # - Publications: publications.md
-  - Team: team.md
-  # - Videos: videos.md (ADD LATER)
+  # - Gallery: gallery.md (ADD AFTER REVIEW)
+  # - Publications: publications.md (ADD AFTER REVIEW)
+  # - Team: team.md (ADD AFTER REVIEW)
 theme:
   name: readthedocs
   logo: img/logo.png

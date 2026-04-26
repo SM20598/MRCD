@@ -2,7 +2,7 @@
 The Mobile Robot Campus Dataset (MRCD) presents a novel outdoor SLAM challenge dedicated to testing, evaluating, and developing SOTA algorithms.
 Our contribution includes diverse challenging, high-frequency robot sequences collected with a wheeled delivery robot, an commnunity-driven competition for modern SLAM algorithms and a qualitive benchmark of exisiting ROS2-based SLAM algorithms available online. With MRCD, we aim to contribute to the ongoing development of SLAM algorithms highlighting existing limitations and challenges, in particular related to ROS2 implementations, and hope to address open problems, issues, and challenges in a collaborative fashion.   
 
-![](photos_resized/laura.png#center)
+![](photos_resized/Roboter_anonym.png#center)
 
 ## Dataset Content
 MRCD provides several ROS2 bag files that include various sensor modalities:
@@ -23,7 +23,6 @@ In addition to our dataset, we present the MRCD-SLAM challenge, where reachers w
 
 ## Notes:
 We are open to contributions to our dataset. Please feel free to raise an [issue](https://github.com/SM20598/MRCD/issues) or open a [discussion](https://github.com/SM20598/MRCD/discussions) on our [Github](https://github.com/SM20598/MRCD) 🙃
-
 <!-- ## Publication:
 For more information, please find our publication below. If you use MRCD or reference our work, we kindly ask that you cite it as follows:
 

@@ -15,7 +15,7 @@ Our dataset was recorded in ROS2 Humble. We recorded a total of 11 sequences in 
 
 ## ROS2 TF-Tree
 
- ![](photos_resized/laura_robot_tf.png#center)
+ ![](photos_resized/laura_robot_tf_anonym.png#center)
 
 ---
 

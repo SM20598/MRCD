@@ -281,7 +281,7 @@ ros2 bag play -p /dataset_files/<path_to_bagfile> --remap /mrcd_robot/tf:=/tf /m
 rviz2 -d src/mrcd_isaac_ros_visual_slam/rviz/isaac_vislam.rviz
 ```
 
-![Screenshot of RTAB-maps inbuilt Visualization Window](img/NIRV_RViz.png)<br>
+![Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM](img/NIRV_RViz.png)<br>
 
 
 
@@ -381,7 +381,7 @@ ros2 bag play -p /dataset_files/<path_to_bagfile> --clock --read-ahead-queue-siz
 ros2 launch rtabmap_launch image_rect.launch.py
 ```
 
-![Rviz2 Screenshot of NVIDIA ISAAC ROS Visual SLAM](img/RTABMAP_Viz.png)<br>
+![Screenshot of RTAB-maps inbuilt Visualization Window](img/RTABMAP_Viz.png)<br>
 
 ---
 
