@@ -19,7 +19,7 @@ MRCD provides several ROS2 bag files that include various sensor modalities:
 * [Docker Images](./download.md#docker-images) for Humble SOTA SLAM algorithms.
 
 ## Open-Community Benchmark Challenge
-In addition to our dataset, we present the MRCD-SLAM challenge, where reachers will have the opportunity to compete against eachother.
+In addition to our dataset, we present the [MRCD-challenge](https://www.codabench.org/competitions/16114/), where reachers will have the opportunity to compete against eachother.
 
 ## Notes:
 We are open to contributions to our dataset. Please feel free to raise an [issue](https://github.com/SM20598/MRCD/issues) or open a [discussion](https://github.com/SM20598/MRCD/discussions) on our [Github](https://github.com/SM20598/MRCD) 🙃

@@ -5,6 +5,7 @@ nav:
   - Dataset Information: user-guide.md
   - Download: download.md
   - SLAM Tutorial: slam-tutorial.md
+  - MRCD-challenge: challenge.md
   - Release Notes: release-notes.md
   - Contribute: contribute.md
   # - Contact: contact.md (ADD LATER)
