@@ -6,14 +6,10 @@ nav:
   - Download: download.md
   - SLAM Tutorial: slam-tutorial.md
   - MRCD-challenge: challenge.md
-  - Release Notes: release-notes.md
   - Contribute: contribute.md
-  # - Contact: contact.md (ADD LATER)
-  # - License: license.md (ADD LATER?)
-  # - Acknowledgements: acknowledgements.md (ADD LATER?)
-  # - Gallery: gallery.md (ADD AFTER REVIEW)
-  # - Publications: publications.md (ADD AFTER REVIEW)
-  # - Team: team.md (ADD AFTER REVIEW)
+  - Contact: contact.md
+  - Gallery: gallery.md
+  - Team: team.md
 theme:
   name: readthedocs
   logo: img/logo.png

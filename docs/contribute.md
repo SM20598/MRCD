@@ -7,3 +7,5 @@ We are happy to welcome contributions of any kind. As we experienced many challe
 - Suggestions to Improving our dataset
 
 Please feel free to raise an [issue](https://github.com/SM20598/MRCD/issues) or open a [discussion](https://github.com/SM20598/MRCD/discussions) on our [Github](https://github.com/SM20598/MRCD)
+
+In particlar, we invite SLAM enthusiasts to participate in our [MRCD challenge](./challenge.md).

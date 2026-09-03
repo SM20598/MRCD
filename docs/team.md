@@ -52,10 +52,10 @@ If you are interested in working with us, please reachout to the institute or us
         <div class="imgContainer">
             <img style="float: right;" src="../img/seanmaroofi_.jpg" width="200">
             <p> <b> Sean Maroofi </b> <br />
-                <i> Researcher at ITL </i>
+                <i> PhD student at KTH </i>
             </p>
             <p>
-            📧 <a href="mailto:sean.maroofi@gmail.com">sean.maroofi@tuhh.de</a> <br />
+            📧 <a href="mailto:maroofi@kth.se">maroofi@kth.se</a> <br />
             🏢 <a href="https://www.linkedin.com/in/sean-maroofi/">LinkedIn</a> <br />
             🌐 <a href="https://github.com/SM20598/SM20598.github.io">Personal Website</a> <br />
             🔗 <a href="https://github.com/SM20598">GitHub</a> <br />

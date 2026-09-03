@@ -1,5 +1,5 @@
 # About MRCD
-Our dataset was recorded in ROS2 Humble. We recorded a total of 11 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the [Download](./download.md#dataset) page (The link to the download will be made available after acceptance to ensure anonymization).
+Our dataset was recorded in ROS2 Humble. We recorded a total of 11 sequences in a campus environment. The dataset features a variety of challenging outdoor sequences for outdoor mobile robots. All sequences can be downloaded from the [Download](./download.md#dataset) page.
 
 ---
 
@@ -15,7 +15,7 @@ Our dataset was recorded in ROS2 Humble. We recorded a total of 11 sequences in 
 
 ## ROS2 TF-Tree
 
- ![](photos_resized/laura_robot_tf_anonym.png#center)
+ ![](photos_resized/laura_robot_tf.png#center)
 
 ---
 
